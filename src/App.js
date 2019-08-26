@@ -1,30 +1,103 @@
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { Component } from "react";
 import Amplify from "aws-amplify";
 import awsconfig from "./aws-exports";
+import "./App.css";
+import Header from "./components/Header";
+import DocumentPreview from "./components/DocumentPreview";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import { BrowserRouter, Link, Route } from "react-router-dom";
+import DocumentPage from "./components/DocumentPage";
 
 Amplify.configure(awsconfig);
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  setDocumentPreviewState(title, author) {
+    return <DocumentPreview title={title} author={author} />;
+  }
+
+  render() {
+    return (
+      <BrowserRouter>
+        <Route
+          exact
+          path={"/ToTheSame"}
+          render={() => (
+            <div>
+              <Header />
+              <div className="App">
+                <DocumentPage />
+              </div>
+            </div>
+          )}
+        />
+        <Route
+          exact
+          path={"/"}
+          render={() => (
+            <div>
+              <Header />
+              <div className="App">
+                <br />
+                <Container className="App-documents">
+                  <Row>
+                    <Col>
+                      <Link to={"/ToTheSame"}>
+                        {this.setDocumentPreviewState(
+                          "To the same.",
+                          "John Donne"
+                        )}
+                      </Link>
+                    </Col>
+
+                    <Col>
+                      {this.setDocumentPreviewState(
+                        "To Sir H.G.",
+                        "John Donne"
+                      )}
+                    </Col>
+
+                    <Col>
+                      {this.setDocumentPreviewState(
+                        "To Sir G.F.",
+                        "John Donne"
+                      )}
+                    </Col>
+                  </Row>
+                  <br />
+                  <br />
+                  <Row>
+                    <Col>
+                      {this.setDocumentPreviewState(
+                        "To Sir Thomas Roe.",
+                        "John Donne"
+                      )}
+                    </Col>
+
+                    <Col>
+                      {this.setDocumentPreviewState(
+                        "To Mr. George Garet.",
+                        "John Donne"
+                      )}
+                    </Col>
+
+                    <Col>
+                      {this.setDocumentPreviewState(
+                        "To Mrs Martha Garet.",
+                        "John Donne"
+                      )}
+                    </Col>
+                  </Row>
+                </Container>
+                <header className="App-body" />
+              </div>
+            </div>
+          )}
+        />
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;

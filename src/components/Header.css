@@ -1,0 +1,17 @@
+.Logo {
+  align-content: left;
+  align-items: left;
+  float: left;
+  width: 60%;
+  height: 60%;
+  background-color: white;
+}
+
+.Dropdown-Padding {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.Search-Padding {
+  padding-left: 20px;
+}

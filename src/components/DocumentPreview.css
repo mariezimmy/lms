@@ -1,0 +1,18 @@
+.Title {
+  color: white;
+  background-color: #17a2b8;
+  padding-top: 5px;
+}
+
+.Subtitle {
+  padding-top: 10px;
+  color: white;
+}
+
+.Zoom {
+  transition: transform 0.2s;
+}
+
+.Zoom:hover {
+  transform: scale(1.12);
+}
