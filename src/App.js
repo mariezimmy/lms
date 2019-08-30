@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Amplify from "aws-amplify";
-import awsconfig from "./aws-exports";
 import "./App.css";
 import Header from "./components/Header";
 import DocumentPreview from "./components/DocumentPreview";
@@ -9,8 +7,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 import DocumentPage from "./components/DocumentPage";
-
-Amplify.configure(awsconfig);
 
 class App extends Component {
   setDocumentPreviewState(title, author) {
@@ -99,5 +95,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;

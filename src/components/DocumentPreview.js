@@ -22,7 +22,7 @@ class DocumentPreview extends Component {
           {this.props.title}
           <Card.Subtitle className="Title">{this.props.author}</Card.Subtitle>
         </Card.Title>
-        <Card.Img className="Title" variant="top" src="toTheSame.png" />
+        <Card.Img className="Title" variant="top" src="ToTheSame.png" />
       </Card>
     );
   }
