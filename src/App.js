@@ -64,7 +64,7 @@ var wotton6 = {
 };
 
 class App extends Component {
-  createdocumentPreview(document) {
+  createDocumentPreview(document) {
     return (
       <Col>
         <Link to={document.path}>{this.setDocumentPreviewState(document)}</Link>
@@ -112,16 +112,16 @@ class App extends Component {
                 <br />
                 <Container className="App-documents">
                   <Row>
-                    {this.createdocumentPreview(gherard3)}
-                    {this.createdocumentPreview(unknown4)}
-                    {this.createdocumentPreview(white1)}
+                    {this.createDocumentPreview(gherard3)}
+                    {this.createDocumentPreview(unknown4)}
+                    {this.createDocumentPreview(white1)}
                   </Row>
                   <br />
                   <br />
                   <Row>
-                    {this.createdocumentPreview(white2)}
-                    {this.createdocumentPreview(wotton5)}
-                    {this.createdocumentPreview(wotton6)}
+                    {this.createDocumentPreview(white2)}
+                    {this.createDocumentPreview(wotton5)}
+                    {this.createDocumentPreview(wotton6)}
                   </Row>
                 </Container>
                 <header className="App-body" />
