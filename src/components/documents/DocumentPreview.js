@@ -6,13 +6,11 @@ class DocumentPreview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: null,
-      author: null,
-      date: null,
-      url: null,
-      image: null,
-      onScreen: true,
-      metadata: null
+      title: props.title,
+      author: props.author,
+      url: props.url,
+      image: props.image,
+      onScreen: props.onScreen
     };
   }
   render() {
