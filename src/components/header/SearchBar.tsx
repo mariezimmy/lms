@@ -8,9 +8,9 @@ export default class SearchBar extends Component {
 	render() {
 		return (
 			<Form inline className={styles.searchPadding}>
-				<FormControl type="text" placeholder="Search" className="mr-sm-2" />
-				<Button variant="outline-info">
-					Search
+				<FormControl type="text" placeholder="search by title, content..." className="mr-sm-2" />
+				<Button variant="outline-info" className = {styles.SearchButton}>
+					search
 				</Button>
 			</Form>
 		);

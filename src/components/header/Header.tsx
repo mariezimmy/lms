@@ -12,7 +12,7 @@ export default class Header extends Component {
 		return (
 			<Navbar bg="White" className="flex-column">
 				<Nav className="mr-auto">
-					<Image src="bibliofile.png" className={styles.logo} alt="BiblioFile logo" />
+					<Image src="lms.jpg" className={styles.logo} alt="BiblioFile logo" />
 				</Nav>
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav" />
