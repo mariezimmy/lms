@@ -9,100 +9,90 @@ import DocumentPage from "./components/documents/DocumentPage";
 import TestDocumentService from "./services/documentService/TestDocumentService";
 import IDocumentService from "./services/documentService/IDocumentService";
 import styles from "./App.module.scss";
-import LitDocument from "./model/LitDocument"
+import LitDocument from "./model/LitDocument";
 
 interface IAppState {
-	documents?: LitDocument[];
+  documents?: LitDocument[];
 }
 
 export default class App extends Component<any, IAppState> {
+  private documentService: IDocumentService;
 
-	private documentService: IDocumentService;
+  constructor(props: any) {
+    super(props);
+    this.state = {};
 
-	constructor(props: any) {
-		super(props);
-		this.state = {}
+    this.documentService = new TestDocumentService();
+    this.loadDocuments();
+  }
 
-		this.documentService = new TestDocumentService();
-		this.loadDocuments();
-	}
+  public async loadDocuments() {
+    let documents = await this.documentService.getDocuments();
+    this.setState({
+      documents: documents
+    });
+  }
 
-	public async loadDocuments() {
-		let documents = await this.documentService.getDocuments();
-		this.setState({
-			documents: documents
-		});
-	}
+  render(): JSX.Element {
+    let documents = this.state.documents; //Just a shorthand
+    console.log(documents);
 
-	render(): JSX.Element {
-
-		let documents = this.state.documents; //Just a shorthand
-		console.log(documents);
-
-		return (
-			<BrowserRouter>
-				{
-					documents &&
-					documents.map(document => (
-						<Route
-							exact
-							path={document.path}
-							key={document.uniqueID}
-							render={() => (
-								<div>
-									<Header />
-									<div className={styles.App}>
-										<DocumentPage
-											document={document}
-										/>
-									</div>
-								</div>
-							)}
-						/>
-					))
-				}
-				<Route
-					exact
-					path={"/"}
-					render={() => (
-						<div>
-							<Header />
-							<div className={styles.App}>
-								<br />
-								<Container className={styles.AppDocuments}>
-									<Row>
-										{
-											documents &&
-											documents.slice(0, 3).map(document => (
-												<Col key={document.uniqueID}>
-													<Link to={document.path}>
-														<DocumentPreview document={document} />
-													</Link>
-												</Col>
-											))
-										}
-									</Row>
-									<br />
-									<br />
-									<Row>
-										{
-											documents &&
-											documents.slice(3, 6).map(document => (
-												<Col key={document.uniqueID}>
-													<Link to={document.path}>
-														<DocumentPreview document={document} />
-													</Link>
-												</Col>
-											))
-										}
-									</Row>
-								</Container>
-								<header className={styles.AppBody} />
-							</div>
-						</div>
-					)}
-				/>
-			</BrowserRouter>
-		);
-	}
+    return (
+      <BrowserRouter>
+        {documents &&
+          documents.map(document => (
+            <Route
+              exact
+              path={document.path}
+              key={document.uniqueID}
+              render={() => (
+                <div>
+                  <Header />
+                  <div className={styles.App}>
+                    <DocumentPage document={document} />
+                  </div>
+                </div>
+              )}
+            />
+          ))}
+        <Route
+          exact
+          path={"/"}
+          render={() => (
+            <div>
+              <Header />
+              <div className={styles.App}>
+                <br />
+                <Container className={styles.AppDocuments}>
+                  <Row>
+                    {documents &&
+                      documents.slice(0, 3).map(document => (
+                        <Col key={document.uniqueID}>
+                          <Link to={document.path}>
+                            <DocumentPreview document={document} />
+                          </Link>
+                        </Col>
+                      ))}
+                  </Row>
+                  <br />
+                  <br />
+                  <Row>
+                    {documents &&
+                      documents.slice(3, 6).map(document => (
+                        <Col key={document.uniqueID}>
+                          <Link to={document.path}>
+                            <DocumentPreview document={document} />
+                          </Link>
+                        </Col>
+                      ))}
+                  </Row>
+                </Container>
+                <header className={styles.AppBody} />
+              </div>
+            </div>
+          )}
+        />
+      </BrowserRouter>
+    );
+  }
 }

@@ -8,20 +8,20 @@ import SearchBar from "./SearchBar";
 import styles from "./Header.module.scss";
 
 export default class Header extends Component {
-	render() {
-		return (
-			<Navbar bg="White" className="flex-column">
-				<Nav className="mr-auto">
-					<Image src="lms.jpg" className={styles.logo} alt="BiblioFile logo" />
-				</Nav>
-				<Navbar.Toggle aria-controls="basic-navbar-nav" />
-				<Navbar.Collapse id="basic-navbar-nav" />
-				<Nav className="mr-auto ">
-					<SearchBar />
-					<FilterDropdown />
-					<SortDropdown />
-				</Nav>
-			</Navbar>
-		);
-	}
+  render() {
+    return (
+      <Navbar bg="White" className="flex-column">
+        <Nav className="mr-auto">
+          <Image src="lms.jpg" className={styles.logo} alt="BiblioFile logo" />
+        </Nav>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav" />
+        <Nav className="mr-auto ">
+          <SearchBar />
+          <FilterDropdown />
+          <SortDropdown />
+        </Nav>
+      </Navbar>
+    );
+  }
 }
