@@ -5,20 +5,28 @@ import styles from "./DocumentPage.module.scss";
 import LitDocument from "../../model/LitDocument";
 
 interface IDocumentPageProps {
-	document: LitDocument;
+  document: LitDocument;
 }
 
 export default class DocumentPage extends Component<IDocumentPageProps> {
-
-	render(): JSX.Element {
-		return (
-			<Jumbotron fluid >
-				<Container>
-					<h1>{this.props.document.title} </h1>
-					< br />
-					<p className={styles.Text} > {this.props.document.text} </p>
-				</Container>
-			</Jumbotron>
-		);
-	}
+  render(): JSX.Element {
+    return (
+      <Jumbotron fluid className={styles.Body}>
+        <Container>
+          <h1 className={styles.Title}>{this.props.document.title} </h1>
+          <br />
+          <br />
+          <p className={styles.Text}> {this.props.document.text} </p>
+        </Container>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+      </Jumbotron>
+    );
+  }
 }
