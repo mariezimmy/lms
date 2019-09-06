@@ -1,36 +1,40 @@
 .Title {
-	color: white;
-	background-color: #8c2f39;
-	padding-top: 5px;
-	margin-bottom: 0;
-	
-	>* {
-		padding-top: 5px;
-	}
+  color: white;
+  background-color: #8c2f39;
+  padding-top: 5px;
+  margin-bottom: 0;
+
+  > * {
+    padding-top: 5px;
+  }
 }
 
 .Title:hover {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .Subtitle {
-	padding-top: 12px;
-	color: white;
+  background-color: #8c2f39;
+
+  padding-top: 12px;
+  color: white;
 }
 
 .Subtitle:hover {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .Zoom {
-	transition: transform 0.2s;
-	width: 16rem;
+  background-color: #8c2f39;
+
+  transition: transform 0.2s;
+  width: 16rem;
 }
 
 .Zoom:hover {
-	transform: scale(1.12);
+  transform: scale(1.12);
 }
 
 .Card:hover {
-	text-decoration: none;
+  text-decoration: none;
 }
