@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Card from "react-bootstrap/Card";
 import styles from "./DocumentPreview.module.scss";
 import LitDocument from "../../model/LitDocument";
 
@@ -10,17 +9,22 @@ interface IDocumentPreviewProps {
 export default class DocumentPreview extends Component<IDocumentPreviewProps> {
   render() {
     return (
-      <Card className={styles.Zoom}>
-        <Card.Title className={styles.Title}>
-          {this.props.document.title}
-          <Card.Subtitle>{this.props.document.author}</Card.Subtitle>
-        </Card.Title>
-        <Card.Img
-          className={styles.Title}
-          variant="top"
-          src={this.props.document.image}
-        />
-      </Card>
+      <div className={styles.Zoom}>
+        <div>
+          <img className={styles.OrnamentTop} src="ornament.png" alt="" />
+          <p className={styles.Title}> {this.props.document.title}</p>
+          <p className={styles.a}> {this.props.document.author}</p>
+          <img className={styles.OrnamentBottom} src="ornament.png" alt="" />
+        </div>
+      </div>
+
+      //   <Card className={styles.Zoom} style={{ height: "18rem" }}>
+      //     <Card.Img variant="top" src="ornament.png" />
+      //     <br />
+      //     <Card.Title className={styles.Title}>
+      //       {this.props.document.title}
+      //     </Card.Title>
+      //   </Card>
     );
   }
 }
