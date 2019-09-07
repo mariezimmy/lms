@@ -1,40 +1,39 @@
 .Title {
-  color: white;
-  background-color: #8c2f39;
-  padding-top: 5px;
+  color: black;
+  background-color: white;
+  text-align: center;
+  font-size: 110%;
+  padding: 10px;
   margin-bottom: 0;
-
-  > * {
-    padding-top: 5px;
-  }
 }
 
-.Title:hover {
-  text-decoration: none;
+.a {
+  color: black;
+  background-color: white;
+  vertical-align: center;
+  font-size: 85%;
 }
 
-.Subtitle {
-  background-color: #8c2f39;
-
-  padding-top: 12px;
-  color: white;
+.OrnamentTop {
+  width: 100%;
 }
 
-.Subtitle:hover {
-  text-decoration: none;
+.OrnamentBottom {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .Zoom {
-  background-color: #8c2f39;
-
+  position: relative;
+  background-color: white;
+  display: flex;
   transition: transform 0.2s;
-  width: 16rem;
+  width: 18rem;
+  height: 18rem;
 }
 
 .Zoom:hover {
   transform: scale(1.12);
-}
-
-.Card:hover {
-  text-decoration: none;
 }
