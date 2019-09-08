@@ -17,14 +17,6 @@ export default class DocumentPreview extends Component<IDocumentPreviewProps> {
           <img className={styles.OrnamentBottom} src="ornament.png" alt="" />
         </div>
       </div>
-
-      //   <Card className={styles.Zoom} style={{ height: "18rem" }}>
-      //     <Card.Img variant="top" src="ornament.png" />
-      //     <br />
-      //     <Card.Title className={styles.Title}>
-      //       {this.props.document.title}
-      //     </Card.Title>
-      //   </Card>
     );
   }
 }
