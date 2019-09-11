@@ -3,3 +3,4 @@ channels:
   - defaults
 dependencies:
   - pymongo
+  - flask
