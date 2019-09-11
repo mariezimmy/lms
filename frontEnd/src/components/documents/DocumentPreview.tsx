@@ -11,10 +11,18 @@ export default class DocumentPreview extends Component<IDocumentPreviewProps> {
     return (
       <div className={styles.Zoom}>
         <div>
-          <img className={styles.OrnamentTop} src="ornament.png" alt="" />
+          <img
+            className={styles.OrnamentTop}
+            src="static/react/ornament.png"
+            alt=""
+          />
           <p className={styles.Title}> {this.props.document.title}</p>
           <p className={styles.a}> {this.props.document.author}</p>
-          <img className={styles.OrnamentBottom} src="ornament.png" alt="" />
+          <img
+            className={styles.OrnamentBottom}
+            src="static/react/ornament.png"
+            alt=""
+          />
         </div>
       </div>
     );
