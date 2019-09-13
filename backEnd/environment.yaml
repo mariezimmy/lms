@@ -4,3 +4,4 @@ channels:
 dependencies:
   - pymongo
   - flask
+  - gunicorn

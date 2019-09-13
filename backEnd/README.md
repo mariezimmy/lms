@@ -12,5 +12,5 @@ Note for windows users: Conda will not work with powershell :(
 
 In the /frontEnd directory, run `npm run build`
 After this command, you should notice that the static and templates folders are populated.
-Now, in the /backEnd directory, run `python3 app.py`
-The application should be available at the specified IP and port.
+Now, in the /backEnd directory, run `gunicorn -c gunicornConfig.py wsgi`
+The application should be available at the IP and port specified in the gunicornConfig.py.
