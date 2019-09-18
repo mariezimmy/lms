@@ -29,7 +29,13 @@ class Database:
         self.db_up = True
 
     def get_doc(self, query):
+        #EX: db.get_doc({'author': 'John Donne'})
         doc = self.docs.find_one(query)
+        return doc
+
+    def get_multi_doc(self, query):
+        #EX: db.get_multi_doc({'author': 'John Donne'})
+        doc = self.docs.find(query)
         return doc
 
     def get_all_docs(self):
