@@ -1,6 +1,19 @@
 import pymongo
 from pymongo import MongoClient
 
+TEST_DOC_1 = {
+    "author": "John Donne",
+    "text": "No manth ist an islandeth, foreth himeth that shallth die shallst but floateth",
+    "title": "Test Document 1" }
+
+TEST_DOC_3 = {
+    "author": "John Doone",
+    "text": "Asketh noteth forst whometh yonderst belleths tollst, forest thouth yonder bellths tollest forst thee",
+    "title": "Test Document 3" }
+
+def db_init(db, documents):
+    for d in documents:
+        db.add_doc(d)
 
 class Database:
 
@@ -10,8 +23,8 @@ class Database:
     db_up = False
 
     def __init__(self, url = 'localhost', port = 27017, db_name = 'donne_documents'):
-        client = MongoClient(url, port)
-        self.db = client[db_name]
+        self.client = MongoClient(url, port)
+        self.db = self.client[db_name]
         self.docs = self.db.documents
         self.db_up = True
 
