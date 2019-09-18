@@ -14,7 +14,7 @@ from waitress import serve
 # if __name__ == '__main__':
 #     serve(app, host='0.0.0.0', port=3000)
 
-app = Flask(__name__, static_folder='static/')
+app = Flask(__name__, static_folder='build/')
 
 # Serve React App
 @app.route('/', defaults={'path': ''})
