@@ -20,7 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
 	"buildWindows": "react-scripts build && robocopy /it /E build ..\\backEnd\\build",
-	"buildUnix": "react-scripts build && cp -rf build ../backEnd/build",
+	"buildUnix": "react-scripts build && cp -rf ./build ../backEnd/build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
