@@ -1,17 +1,13 @@
 import os
 from flask import Flask, render_template, send_from_directory
 import waitress
-
-# app = Flask(__name__)
+import database
 
 # @app.route('/')
 # def index():
 # 	# return send_from_directory("./", "app.py")
 # 	return send_from_directory("./static/react/", "index.html")
 #     # return render_template('index.html')
-
-
-# if __name__ == '__main__':
 
 app = Flask(__name__, static_folder='build/')
 
@@ -26,5 +22,8 @@ def serve(path):
 
 
 if __name__ == '__main__':
+	donne_database = database.Database(url = 'localhost', port = 27017, db_name = 'donne_documents')
+	#DO ONCE
+	#database.db_init(donne_database, [database.TEST_DOC_1, database.TEST_DOC_3])
 	waitress.serve(app, host='0.0.0.0', port=3000)
 	# app.run(use_reloader=True, port=5000, threaded=True)
