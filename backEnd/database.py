@@ -15,6 +15,7 @@ def db_init(db, documents):
     for d in documents:
         db.add_doc(d)
 
+
 class Database:
 
     client = None
@@ -34,7 +35,7 @@ class Database:
 
     def get_all_docs(self):
         #If we make this larger, we will remove the list() and just leave it as a cursor
-        return list(self.db.find())
+        return list(self.docs.find())
 
     def add_doc(self, new_doc):
         docs = self.db.documents
