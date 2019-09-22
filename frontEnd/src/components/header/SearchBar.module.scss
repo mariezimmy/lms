@@ -1,10 +1,17 @@
+@font-face {
+  font-family: "Roboto Light";
+  src: url("../../Roboto-Light.ttf");
+}
+
 .searchPadding {
   padding-left: 20px;
+  font-family: "Roboto Light";
 }
 
 .SearchButton {
   border-color: #8c2f39;
   color: #8c2f39;
+  font-family: "Roboto Light";
 }
 
 .SearchButton:hover {

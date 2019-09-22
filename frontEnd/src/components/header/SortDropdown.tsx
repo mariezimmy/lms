@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import styles from "./SortDropdown.module.scss";
 
 export default class SortDropdown extends Component {
 	sortByDateNewestToOldest() {
@@ -16,7 +17,7 @@ export default class SortDropdown extends Component {
 
 	render() {
 		return (
-			<NavDropdown title="Sort" id="basic-nav-dropdown">
+			<NavDropdown title="Sort" id="basic-nav-dropdown" className = {styles.Sort}>
 				<NavDropdown.Item
 					onClick={this.sortByDateNewestToOldest.bind(this)}
 					href="#sort/newest-oldest"
