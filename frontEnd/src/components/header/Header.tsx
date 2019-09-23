@@ -10,7 +10,7 @@ import styles from "./Header.module.scss";
 export default class Header extends Component {
   render() {
     return (
-      <Navbar bg="White" className="flex-column">
+      <Navbar bg="White" className="flex-column" id = {styles.headerbckgd}>
         <Nav className="mr-auto">
           <Image src="lms.png" className={styles.logo} alt="BiblioFile logo" />
         </Nav>
