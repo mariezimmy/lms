@@ -14,13 +14,13 @@ export default class Header extends Component {
         <Nav className="mr-auto">
           <Image src="lms.png" className={styles.logo} alt="BiblioFile logo" />
         </Nav>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" />
-        <Nav className="mr-auto ">
-          <SearchBar />
-          <FilterDropdown />
-          <SortDropdown />
-        </Nav>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav" />
+          <Nav className="mr-auto" >
+            <SearchBar />
+            <FilterDropdown />
+            <SortDropdown />
+          </Nav>
       </Navbar>
     );
   }
