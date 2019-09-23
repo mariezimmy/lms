@@ -18,14 +18,6 @@ export default class DocumentPage extends Component<IDocumentPageProps> {
           <br />
           <p className={styles.Text}> {this.props.document.text || "Unknown"} </p>
         </Container>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
       </Jumbotron>
     );
   }
