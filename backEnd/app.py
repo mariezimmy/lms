@@ -1,6 +1,7 @@
 import database
 import os
 from flask import Flask, send_from_directory, make_response, json, request
+import waitress
 from waitress import serve
 from bson.objectid import ObjectId
 
@@ -61,5 +62,5 @@ def create_doc():
 if __name__ == '__main__':
 	donne_database = database.Database(url = 'localhost', port = 27017, db_name = 'donne_documents')
 	#DO ONCE
-	#database.db_init(donne_database, [database.TEST_DOC_1, database.TEST_DOC_3])
-	waitress.serve(app, host='0.0.0.0', port=3000)
+	# database.db_init(donne_database, [database.TEST_DOC_1, database.TEST_DOC_3])
+	waitress.serve(app, port=3000)
