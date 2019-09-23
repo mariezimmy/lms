@@ -1,14 +1,22 @@
-from flask import Flask, render_template, make_response, json, request
+import database
+import os
+from flask import Flask, send_from_directory, make_response, json, request
 from waitress import serve
 from bson.objectid import ObjectId
-import database
 
-app = Flask(__name__)
+
+app = Flask(__name__, static_folder='build/')
 donne_database = None
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+
+# Serve React App
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve(path):
+	if path != "" and os.path.exists(app.static_folder + path):
+		return send_from_directory(app.static_folder, path)
+	else:
+		return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/documents', methods=['GET'])
 def doc_list():
@@ -51,7 +59,7 @@ def create_doc():
     return response
 
 if __name__ == '__main__':
-    donne_database = database.Database(url = 'localhost', port = 27017, db_name = 'donne_documents')
-    #DO ONCE
-    #database.db_init(donne_database, [database.TEST_DOC_1, database.TEST_DOC_3])
-    serve(app, host='0.0.0.0', port=3000)
+	donne_database = database.Database(url = 'localhost', port = 27017, db_name = 'donne_documents')
+	#DO ONCE
+	#database.db_init(donne_database, [database.TEST_DOC_1, database.TEST_DOC_3])
+	waitress.serve(app, host='0.0.0.0', port=3000)
