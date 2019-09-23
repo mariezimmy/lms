@@ -43,7 +43,7 @@ export default class App extends Component<any, IAppState> {
           documents.map(document => (
             <Route
               exact
-              path={document.uniqueID.toString()}
+              path={"/" + document.uniqueID.toString()}
               key={document.uniqueID}
               render={() => (
                 <div>
@@ -68,7 +68,7 @@ export default class App extends Component<any, IAppState> {
                     {documents &&
                       documents.slice(0, 3).map(document => (
                         <Col key={document.uniqueID}>
-                          <Link to={document.uniqueID.toString()}>
+                          <Link to={"/" + document.uniqueID.toString()}>
                             <DocumentPreview document={document} />
                           </Link>
                         </Col>
@@ -80,7 +80,7 @@ export default class App extends Component<any, IAppState> {
                     {documents &&
                       documents.slice(3, 6).map(document => (
                         <Col key={document.uniqueID}>
-                          <Link to={document.uniqueID.toString()}>
+                          <Link to={"/" + document.uniqueID.toString()}>
                             <DocumentPreview document={document} />
                           </Link>
                         </Col>
