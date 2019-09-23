@@ -1,4 +1,4 @@
-from flask import Flask, render_template, make_response, json
+from flask import Flask, render_template, make_response, json, request
 from waitress import serve
 from bson.objectid import ObjectId
 import database
@@ -10,7 +10,7 @@ donne_database = None
 def index():
     return render_template('index.html')
 
-@app.route('/documents')
+@app.route('/documents', methods=['GET'])
 def doc_list():
     if(donne_database):
         docs = donne_database.get_all_docs()
@@ -23,13 +23,28 @@ def doc_list():
 
     return response
 
-@app.route('/document/<string:doc_id>')
+@app.route('/document/<string:doc_id>', methods=['GET'])
 def single_doc(doc_id):
     if(donne_database):
         doc = donne_database.get_doc({'_id': ObjectId(doc_id)})
         doc['_id'] = str(doc['_id'])
         doc = json.dumps(doc)
         response = make_response(doc, 200, {'Content-Type': 'application/json'})
+    else:
+        response = make_response(None, 404, {'Content-Type': 'application/json'})
+
+    return response
+
+@app.route('/document', methods=['POST'])
+def create_doc():
+    #curl - i - H "Content-Type: application/json" - X POST - d '{"title":"Read a book"}' http: // localhost: 5000 / todo / api / v1 .0 / tasks
+    print(request.json)
+    if(donne_database and request.json):
+        new_id = donne_database.add_doc(request.json)
+        new_doc = donne_database.get_doc({'_id': new_id})
+        new_doc['_id'] = str(new_doc['_id'])
+        new_doc = json.dumps(new_doc)
+        response = make_response(new_doc, 201, {'Content-Type': 'application/json'})
     else:
         response = make_response(None, 404, {'Content-Type': 'application/json'})
 
