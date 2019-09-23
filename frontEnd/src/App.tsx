@@ -10,6 +10,7 @@ import TestDocumentService from "./services/documentService/TestDocumentService"
 import IDocumentService from "./services/documentService/IDocumentService";
 import styles from "./App.module.scss";
 import LitDocument from "./model/LitDocument";
+import LocalDocumentService from "./services/documentService/LocalDocumentService";
 
 interface IAppState {
   documents?: LitDocument[];
@@ -23,6 +24,7 @@ export default class App extends Component<any, IAppState> {
     this.state = {};
 
     this.documentService = new TestDocumentService();
+    // this.documentService = new LocalDocumentService();
     this.loadDocuments();
   }
 
@@ -35,15 +37,13 @@ export default class App extends Component<any, IAppState> {
 
   render(): JSX.Element {
     let documents = this.state.documents; //Just a shorthand
-    console.log(documents);
-
     return (
       <BrowserRouter>
         {documents &&
           documents.map(document => (
             <Route
               exact
-              path={document.path}
+              path={"/" + document.uniqueID.toString()}
               key={document.uniqueID}
               render={() => (
                 <div>
@@ -68,7 +68,7 @@ export default class App extends Component<any, IAppState> {
                     {documents &&
                       documents.slice(0, 3).map(document => (
                         <Col key={document.uniqueID}>
-                          <Link to={document.path}>
+                          <Link to={"/" + document.uniqueID.toString()}>
                             <DocumentPreview document={document} />
                           </Link>
                         </Col>
@@ -80,7 +80,7 @@ export default class App extends Component<any, IAppState> {
                     {documents &&
                       documents.slice(3, 6).map(document => (
                         <Col key={document.uniqueID}>
-                          <Link to={document.path}>
+                          <Link to={"/" + document.uniqueID.toString()}>
                             <DocumentPreview document={document} />
                           </Link>
                         </Col>
