@@ -20,6 +20,11 @@
   color: #ffffff;
 }
 
+.SearchButton:focus {
+  box-shadow: none;
+  outline: none !important;
+}
+
 .searchBar {
   margin-right: 10px;
 }

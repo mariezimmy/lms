@@ -21,16 +21,22 @@ export default class SortDropdown extends Component {
 				<NavDropdown.Item
 					onClick={this.sortByDateNewestToOldest.bind(this)}
 					href="#sort/newest-oldest"
+					className = {styles.dropdownItem}
 				>
 					Date (newest - oldest)
 				</NavDropdown.Item>
 				<NavDropdown.Item
 					onClick={this.sortByDateOldestToNewest.bind(this)}
 					href="#sort/oldest-newest"
+					className = {styles.dropdownItem}
 				>
 					Date (oldest - newest)
 				</NavDropdown.Item>
-				<NavDropdown.Item onClick={this.sortByTitle.bind(this)} href="#sort/title">
+				<NavDropdown.Item 
+					onClick={this.sortByTitle.bind(this)} 
+					href="#sort/title"
+					className = {styles.dropdownItem}
+				>
 					Title (A - Z)
 				</NavDropdown.Item>
 			</NavDropdown>
