@@ -11,7 +11,7 @@ export default class SearchBar extends Component {
         <FormControl
           type="text"
           placeholder="Search by title, etc."
-          className="mr-sm-2"
+          className = {styles.searchBar}
         />
         <Button variant="outline-info" className={styles.SearchButton}>
           Search

@@ -19,3 +19,12 @@
   background-color: #8c2f39;
   color: #ffffff;
 }
+
+.searchBar {
+  margin-right: 10px;
+}
+
+.searchBar:focus {
+  box-shadow: none;
+  border: 1px solid #333333;
+}
