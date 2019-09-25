@@ -55,6 +55,7 @@ export default class App extends Component<any, IAppState> {
               )}
             />
           ))}
+          
         <Route
           exact
           path={"/"}
@@ -87,7 +88,6 @@ export default class App extends Component<any, IAppState> {
                       ))}
                   </Row>
                 </Container>
-                <header className={styles.AppBody} />
               </div>
             </div>
           )}

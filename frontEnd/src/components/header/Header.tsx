@@ -6,21 +6,24 @@ import SortDropdown from "./SortDropdown";
 import FilterDropdown from "./FilterDropdown";
 import SearchBar from "./SearchBar";
 import styles from "./Header.module.scss";
+import { BrowserRouter, Link, Route } from "react-router-dom";
 
 export default class Header extends Component {
   render() {
     return (
-      <Navbar bg="White" className="flex-column">
+      <Navbar bg="White" className="flex-column" id = {styles.headerbckgd}>
         <Nav className="mr-auto">
-          <Image src="lms.jpg" className={styles.logo} alt="BiblioFile logo" />
+          <Link to={"/"}>
+            <Image src="lms.png" className={styles.logo} alt="BiblioFile logo" />
+          </Link>
         </Nav>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" />
-        <Nav className="mr-auto ">
-          <SearchBar />
-          <FilterDropdown />
-          <SortDropdown />
-        </Nav>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav" />
+          <Nav className="mr-auto" >
+            <SearchBar />
+            <FilterDropdown />
+            <SortDropdown />
+          </Nav>
       </Navbar>
     );
   }
