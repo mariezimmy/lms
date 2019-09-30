@@ -8,22 +8,30 @@ import SearchBar from "./SearchBar";
 import styles from "./Header.module.scss";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 
-export default class Header extends Component {
+export default class Header extends Component<any, any> {
+  constructor(props: any) {
+    super(props);
+  }
+
   render() {
     return (
-      <Navbar bg="White" className="flex-column" id = {styles.headerbckgd}>
+      <Navbar bg="White" className="flex-column" id={styles.headerbckgd}>
         <Nav className="mr-auto">
           <Link to={"/"}>
-            <Image src="lms.png" className={styles.logo} alt="BiblioFile logo" />
+            <Image
+              src="lms.png"
+              className={styles.logo}
+              alt="BiblioFile logo"
+            />
           </Link>
         </Nav>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" />
-          <Nav className="mr-auto" >
-            <SearchBar />
-            <FilterDropdown />
-            <SortDropdown />
-          </Nav>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav" />
+        <Nav className="mr-auto">
+          <SearchBar />
+          <FilterDropdown />
+          <SortDropdown setDocuments={this.props.setDocuments} />
+        </Nav>
       </Navbar>
     );
   }
