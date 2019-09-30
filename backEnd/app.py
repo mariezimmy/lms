@@ -2,6 +2,7 @@ import database
 import os
 from flask import Flask, send_from_directory, make_response, json, request
 import waitress
+import pymongo
 from bson.objectid import ObjectId
 
 
@@ -23,6 +24,22 @@ def serve(path):
 def doc_list():
     if(donne_database):
         docs = donne_database.get_all_docs()
+        for d in docs:
+            d['_id'] = str(d['_id'])
+        docs = json.dumps(docs)
+        response = make_response(
+            docs, 200, {'Content-Type': 'application/json'})
+    else:
+        response = make_response(
+            None, 404, {'Content-Type': 'application/json'})
+
+    return response
+
+
+@app.route('/sortDocumentsByTitle', methods=['GET'])
+def doc_list_sorted_by_title():
+    if(donne_database):
+        docs = donne_database.get_all_docs_sorted('title', pymongo.ASCENDING)
         for d in docs:
             d['_id'] = str(d['_id'])
         docs = json.dumps(docs)
