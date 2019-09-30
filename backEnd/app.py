@@ -33,7 +33,7 @@ def doc_list():
 	return response
 
 
-@app.route('/document/<string:doc_id>', methods=['GET'])
+@app.route('/documents/<string:doc_id>', methods=['GET'])
 def single_doc(doc_id):
 	if(donne_database):
 		doc = donne_database.get_doc({'_id': ObjectId(doc_id)})
@@ -46,7 +46,7 @@ def single_doc(doc_id):
 	return response
 
 
-@app.route('/document', methods=['POST'])
+@app.route('/documents', methods=['POST'])
 def create_doc():
 	# curl - i - H "Content-Type: application/json" - X POST - d '{"title":"Read a book"}' http: // localhost: 5000 / todo / api / v1 .0 / tasks
 	print(request.json)
