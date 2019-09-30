@@ -23,8 +23,8 @@ export default class App extends Component<any, IAppState> {
     super(props);
     this.state = {};
 
-    this.documentService = new TestDocumentService();
-    // this.documentService = new LocalDocumentService();
+    //this.documentService = new TestDocumentService();
+    this.documentService = new LocalDocumentService();
     this.loadDocuments();
   }
 
@@ -55,7 +55,7 @@ export default class App extends Component<any, IAppState> {
               )}
             />
           ))}
-          
+
         <Route
           exact
           path={"/"}
