@@ -25,3 +25,5 @@ frontEnd/.env.production.local
 
 backEnd/__pycache__
 backEnd/*/__pycache__
+
+scripts/__pycache__
