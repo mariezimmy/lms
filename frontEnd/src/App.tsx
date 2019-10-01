@@ -23,16 +23,21 @@ export default class App extends Component<any, IAppState> {
     super(props);
     this.state = {};
 
-    this.documentService = new TestDocumentService();
-    // this.documentService = new LocalDocumentService();
+    this.setDocuments = this.setDocuments.bind(this);
+    //this.documentService = new TestDocumentService();
+    this.documentService = new LocalDocumentService();
     this.loadDocuments();
+  }
+
+  public setDocuments(documents: LitDocument[]) {
+    this.setState({
+      documents: documents
+    });
   }
 
   public async loadDocuments() {
     let documents = await this.documentService.getDocuments();
-    this.setState({
-      documents: documents
-    });
+    this.setDocuments(documents);
   }
 
   render(): JSX.Element {
@@ -47,7 +52,7 @@ export default class App extends Component<any, IAppState> {
               key={document.uniqueID}
               render={() => (
                 <div>
-                  <Header />
+                  <Header setDocuments={this.setDocuments} />
                   <div className={styles.App}>
                     <DocumentPage document={document} />
                   </div>
@@ -55,13 +60,13 @@ export default class App extends Component<any, IAppState> {
               )}
             />
           ))}
-          
+
         <Route
           exact
           path={"/"}
           render={() => (
             <div>
-              <Header />
+              <Header setDocuments={this.setDocuments} />
               <div className={styles.App}>
                 <br />
                 <Container className={styles.AppDocuments}>
