@@ -1,55 +1,50 @@
 import React, { Component } from "react";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import styles from "./SortDropdown.module.scss";
-import IDocumentService from "../../services/documentService/IDocumentService";
-import LocalDocumentService from "../../services/documentService/LocalDocumentService";
-import LitDocument from "../../model/LitDocument";
-import App from "../../App";
+import SortBy from "../../model/SortBy";
 
-export default class SortDropdown extends Component<any, any> {
-  constructor(props: any) {
-    super(props);
-  }
+interface ISortDropdownProps {
+	sort: (sortBy: SortBy) => Promise<void>;
+}
 
-  sortByDateNewestToOldest() {
-    return;
-  }
 
-  sortByDateOldestToNewest() {
-    return;
-  }
+export default class SortDropdown extends Component<ISortDropdownProps> {
+	constructor(props: any) {
+		super(props);
+	}
 
-  async sortByTitle() {
-    var documentService = new LocalDocumentService();
-    let documents = await documentService.sortDocumentsByTitle();
-    this.props.setDocuments(documents);
-  }
-
-  render() {
-    return (
-      <NavDropdown title="Sort" id="basic-nav-dropdown" className={styles.Sort}>
-        <NavDropdown.Item
-          onClick={this.sortByDateNewestToOldest.bind(this)}
-          href="#sort/newest-oldest"
-          className={styles.dropdownItem}
-        >
-          Date (newest - oldest)
-        </NavDropdown.Item>
-        <NavDropdown.Item
-          onClick={this.sortByDateOldestToNewest.bind(this)}
-          href="#sort/oldest-newest"
-          className={styles.dropdownItem}
-        >
-          Date (oldest - newest)
-        </NavDropdown.Item>
-        <NavDropdown.Item
-          onClick={this.sortByTitle.bind(this)}
-          href="#sort/title"
-          className={styles.dropdownItem}
-        >
-          Title (A - Z)
-        </NavDropdown.Item>
-      </NavDropdown>
-    );
-  }
+	render() {
+		return (
+			<NavDropdown title="Sort" id="basic-nav-dropdown" className={styles.Sort}>
+				<NavDropdown.Item
+					onClick={() => {this.props.sort(SortBy.TitleAZ)}}
+					href="#sort/titleAZ"
+					className={styles.dropdownItem}
+				>
+					Title (A - Z)
+				</NavDropdown.Item>
+				<NavDropdown.Item
+					onClick={() => {this.props.sort(SortBy.TitleZA)}}
+					href="#sort/titleZA"
+					className={styles.dropdownItem}
+				>
+					Title (Z - A)
+				</NavDropdown.Item>
+				<NavDropdown.Item
+					onClick={() => {this.props.sort(SortBy.AuthorAZ)}}
+					href="#sort/authorAZ"
+					className={styles.dropdownItem}
+				>
+					Author (A - Z)
+				</NavDropdown.Item>
+				<NavDropdown.Item
+					onClick={() => {this.props.sort(SortBy.AuthorZA)}}
+					href="#sort/authorZA"
+					className={styles.dropdownItem}
+				>
+					Author (Z - A)
+				</NavDropdown.Item>
+			</NavDropdown>
+		);
+	}
 }

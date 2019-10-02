@@ -7,8 +7,13 @@ import FilterDropdown from "./FilterDropdown";
 import SearchBar from "./SearchBar";
 import styles from "./Header.module.scss";
 import { BrowserRouter, Link, Route } from "react-router-dom";
+import SortBy from "../../model/SortBy";
 
-export default class Header extends Component<any, any> {
+interface IHeaderProps {
+	sort: (sortBy: SortBy) => Promise<void>;
+}
+
+export default class Header extends Component<IHeaderProps> {
   constructor(props: any) {
     super(props);
   }
@@ -30,7 +35,7 @@ export default class Header extends Component<any, any> {
         <Nav className="mr-auto">
           <SearchBar />
           <FilterDropdown />
-          <SortDropdown setDocuments={this.props.setDocuments} />
+          <SortDropdown sort={this.props.sort} />
         </Nav>
       </Navbar>
     );

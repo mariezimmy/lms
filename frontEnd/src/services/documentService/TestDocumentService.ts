@@ -1,8 +1,13 @@
 import IDocumentService from "./IDocumentService";
 import Metadata from "../../model/Metadata";
 import LitDocument from "../../model/LitDocument";
+import SortBy from "../../model/SortBy";
 
 export default class TestDocumentService implements IDocumentService {
+	public async sortDocuments(sortBy: SortBy): Promise<LitDocument[]> {
+		return this.getDocuments();
+	}
+
   public async getDocuments(): Promise<LitDocument[]> {
     let documents = [
       new LitDocument(

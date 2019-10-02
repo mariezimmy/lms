@@ -11,6 +11,7 @@ import IDocumentService from "./services/documentService/IDocumentService";
 import styles from "./App.module.scss";
 import LitDocument from "./model/LitDocument";
 import LocalDocumentService from "./services/documentService/LocalDocumentService";
+import SortBy from "./model/SortBy";
 
 interface IAppState {
   documents?: LitDocument[];
@@ -23,21 +24,19 @@ export default class App extends Component<any, IAppState> {
     super(props);
     this.state = {};
 
-    this.setDocuments = this.setDocuments.bind(this);
     //this.documentService = new TestDocumentService();
     this.documentService = new LocalDocumentService();
     this.loadDocuments();
   }
 
-  public setDocuments(documents: LitDocument[]) {
-    this.setState({
-      documents: documents
-    });
+  public async sort(sortBy: SortBy): Promise<void> {
+    let docs = await this.documentService.sortDocuments(sortBy)
+    this.setState({documents: docs})
   }
 
   public async loadDocuments() {
-    let documents = await this.documentService.getDocuments();
-    this.setDocuments(documents);
+	let documents = await this.documentService.getDocuments();
+	this.setState({documents: documents})
   }
 
   render(): JSX.Element {
@@ -52,7 +51,7 @@ export default class App extends Component<any, IAppState> {
               key={document.uniqueID}
               render={() => (
                 <div>
-                  <Header setDocuments={this.setDocuments} />
+                  <Header sort={this.sort.bind(this)} />
                   <div className={styles.App}>
                     <DocumentPage document={document} />
                   </div>
@@ -66,7 +65,7 @@ export default class App extends Component<any, IAppState> {
           path={"/"}
           render={() => (
             <div>
-              <Header setDocuments={this.setDocuments} />
+              <Header sort={this.sort.bind(this)} />
               <div className={styles.App}>
                 <br />
                 <Container className={styles.AppDocuments}>
