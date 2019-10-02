@@ -1,15 +1,4 @@
-import pymongo
 from pymongo import MongoClient
-
-TEST_DOC_1 = {
-    "author": "John Donne",
-    "text": "No manth ist an islandeth, foreth himeth that shallth die shallst but floateth",
-    "title": "Test Document 1"}
-
-TEST_DOC_3 = {
-    "author": "John Doone",
-    "text": "Asketh noteth forst whometh yonderst belleths tollst, forest thouth yonder bellths tollest forst thee",
-    "title": "Test Document 3"}
 
 
 def db_init(db, documents):
