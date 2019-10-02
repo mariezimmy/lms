@@ -35,23 +35,6 @@ def doc_list():
 
     return response
 
-
-@app.route('/sortDocumentsByTitle', methods=['GET'])
-def doc_list_sorted_by_title():
-    if(donne_database):
-        docs = donne_database.get_all_docs_sorted('title', pymongo.ASCENDING)
-        for d in docs:
-            d['_id'] = str(d['_id'])
-        docs = json.dumps(docs)
-        response = make_response(
-            docs, 200, {'Content-Type': 'application/json'})
-    else:
-        response = make_response(
-            None, 404, {'Content-Type': 'application/json'})
-
-    return response
-
-
 @app.route('/documents/<string:doc_id>', methods=['GET'])
 def single_doc(doc_id):
     if(donne_database):
@@ -84,10 +67,25 @@ def create_doc():
 
     return response
 
+@app.route('/sort/<string:sortCriteria>/<string:ascending>', methods=['GET'])
+def sort(sortCriteria, ascending):
+    if(donne_database):
+        docs = donne_database.get_all_docs_sorted(sortCriteria, pymongo.ASCENDING if ascending == 'ascending' else pymongo.DESCENDING )
+        for d in docs:
+            d['_id'] = str(d['_id'])
+        docs = json.dumps(docs)
+        response = make_response(
+            docs, 200, {'Content-Type': 'application/json'})
+    else:
+        response = make_response(
+            None, 404, {'Content-Type': 'application/json'})
+
+    return response
+
 
 if __name__ == '__main__':
     donne_database = database.Database(
         url='localhost', port=27017, db_name='donne_documents')
     # DO ONCE
     # database.db_init(donne_database, [database.TEST_DOC_1, database.TEST_DOC_3])
-    waitress.serve(app, port=3000)
+    waitress.serve(app, host='localhost', port=3000)
