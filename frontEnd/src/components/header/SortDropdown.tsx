@@ -9,6 +9,9 @@ interface ISortDropdownProps {
 
 
 export default class SortDropdown extends Component<ISortDropdownProps> {
+
+	private sorts: SortBy[] = [SortBy.TitleAZ, SortBy.TitleZA, SortBy.AuthorAZ, SortBy.AuthorZA,]
+
 	constructor(props: any) {
 		super(props);
 	}
@@ -16,34 +19,18 @@ export default class SortDropdown extends Component<ISortDropdownProps> {
 	render() {
 		return (
 			<NavDropdown title="Sort" id="basic-nav-dropdown" className={styles.Sort}>
-				<NavDropdown.Item
-					onClick={() => {this.props.sort(SortBy.TitleAZ)}}
-					href="#sort/titleAZ"
-					className={styles.dropdownItem}
-				>
-					Title (A - Z)
-				</NavDropdown.Item>
-				<NavDropdown.Item
-					onClick={() => {this.props.sort(SortBy.TitleZA)}}
-					href="#sort/titleZA"
-					className={styles.dropdownItem}
-				>
-					Title (Z - A)
-				</NavDropdown.Item>
-				<NavDropdown.Item
-					onClick={() => {this.props.sort(SortBy.AuthorAZ)}}
-					href="#sort/authorAZ"
-					className={styles.dropdownItem}
-				>
-					Author (A - Z)
-				</NavDropdown.Item>
-				<NavDropdown.Item
-					onClick={() => {this.props.sort(SortBy.AuthorZA)}}
-					href="#sort/authorZA"
-					className={styles.dropdownItem}
-				>
-					Author (Z - A)
-				</NavDropdown.Item>
+				{
+					this.sorts.map((sort: SortBy) => {
+						<NavDropdown.Item
+						onClick={() => { this.props.sort(sort) }}
+						href={"#sort/" + sort.endpoint}
+						className={styles.dropdownItem}
+					>
+						{sort.description}
+					</NavDropdown.Item>
+	
+					})
+				}
 			</NavDropdown>
 		);
 	}
