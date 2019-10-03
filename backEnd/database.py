@@ -29,6 +29,10 @@ class Database:
         doc = self.docs.find(query)
         return doc
 
+    def search_docs(self, query):
+        # stubbed for now - looking into libraries for partial search
+        return list(self.docs.find({'title': query}))
+
     def get_all_docs(self):
         # If we make this larger, we will remove the list() and just leave it as a cursor
         return list(self.docs.find())
