@@ -10,7 +10,8 @@ import { BrowserRouter, Link, Route } from "react-router-dom";
 import SortBy from "../../model/SortBy";
 
 interface IHeaderProps {
-	sort: (sortBy: SortBy) => Promise<void>;
+  sort: (sortBy: SortBy) => Promise<void>;
+  search: (query: string) => Promise<void>;
 }
 
 export default class Header extends Component<IHeaderProps> {
@@ -33,7 +34,7 @@ export default class Header extends Component<IHeaderProps> {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" />
         <Nav className="mr-auto">
-          <SearchBar />
+          <SearchBar search={this.props.search} />
           <FilterDropdown />
           <SortDropdown sort={this.props.sort} />
         </Nav>
