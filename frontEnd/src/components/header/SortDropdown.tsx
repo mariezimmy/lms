@@ -21,14 +21,14 @@ export default class SortDropdown extends Component<ISortDropdownProps> {
 			<NavDropdown title="Sort" id="basic-nav-dropdown" className={styles.Sort}>
 				{
 					this.sorts.map((sort: SortBy) => {
-						<NavDropdown.Item
-						onClick={() => { this.props.sort(sort) }}
-						href={"#sort/" + sort.endpoint}
-						className={styles.dropdownItem}
-					>
-						{sort.description}
-					</NavDropdown.Item>
-	
+						return <NavDropdown.Item
+							onClick={() => { this.props.sort(sort) }}
+							href={"#sort/" + sort.endpoint}
+							className={styles.dropdownItem}
+						>
+							{sort.description}
+						</NavDropdown.Item>
+
 					})
 				}
 			</NavDropdown>
