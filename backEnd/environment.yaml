@@ -5,3 +5,6 @@ dependencies:
   - pymongo
   - flask
   - waitress
+  - nltk
+  - numpy
+  - scikit-learn
