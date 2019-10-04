@@ -76,3 +76,19 @@ def sort(sortCriteria, ascending):
             None, 404, {'Content-Type': 'application/json'})
 
     return response
+
+
+@doc_bp.route('/search/<string:query>', methods=['GET'])
+def search(query):
+    if(db):
+        docs = db.search_docs(query)
+        for d in docs:
+            d['_id'] = str(d['_id'])
+        docs = json.dumps(docs)
+        response = make_response(
+            docs, 200, {'Content-Type': 'application/json'})
+    else:
+        response = make_response(
+            None, 404, {'Content-Type': 'application/json'})
+
+    return response

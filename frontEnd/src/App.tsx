@@ -31,12 +31,17 @@ export default class App extends Component<any, IAppState> {
 
   public async sort(sortBy: SortBy): Promise<void> {
     let docs = await this.documentService.sortDocuments(sortBy)
-    this.setState({documents: docs})
+    this.setState({ documents: docs })
+  }
+
+  public async search(query: string): Promise<void> {
+    let docs = await this.documentService.searchDocuments(query)
+    this.setState({ documents: docs })
   }
 
   public async loadDocuments() {
-	let documents = await this.documentService.getDocuments();
-	this.setState({documents: documents})
+    let documents = await this.documentService.getDocuments();
+    this.setState({ documents: documents })
   }
 
   render(): JSX.Element {
@@ -51,7 +56,7 @@ export default class App extends Component<any, IAppState> {
               key={document.uniqueID}
               render={() => (
                 <div>
-                  <Header sort={this.sort.bind(this)} />
+                  <Header sort={this.sort.bind(this)} search={this.search.bind(this)} />
                   <div className={styles.App}>
                     <DocumentPage document={document} />
                   </div>
@@ -65,7 +70,7 @@ export default class App extends Component<any, IAppState> {
           path={"/"}
           render={() => (
             <div>
-              <Header sort={this.sort.bind(this)} />
+              <Header sort={this.sort.bind(this)} search={this.search.bind(this)} />
               <div className={styles.App}>
                 <br />
                 <Container className={styles.AppDocuments}>

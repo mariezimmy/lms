@@ -33,4 +33,24 @@ export default class LocalDocumentService implements IDocumentService {
     });
     return new Promise((resolve, reject) => resolve(documents));
   }
+
+  public async searchDocuments(query: string): Promise<LitDocument[]> {
+    let documents = await (await fetch(
+      "http://localhost:3000/search/" + query, {
+      mode: 'no-cors', headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })).json();
+    console.log(documents);
+    documents = documents.map(document => {
+      return new LitDocument(
+        document._id,
+        document.author,
+        document.text,
+        document.title
+      );
+    });
+    return new Promise((resolve, reject) => resolve(documents));
+  }
 }
