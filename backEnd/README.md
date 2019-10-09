@@ -16,9 +16,10 @@ Now, in the /backEnd directory, run `python3 app.py`.
 The application should be available at the IP and port specified in the app.py.
 
 
-#DB Stuff
-###Initial set up:
-####Windows: \
+## DB Stuff
+
+### Initial set up:
+#### Windows: \
 Install the Community Version with the UI\
 Open the application
 
