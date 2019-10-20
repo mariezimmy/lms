@@ -3,35 +3,36 @@
 	src: url("../../Roboto-Light.ttf");
 }
 
-  
+
+
 .navDropDown{
-	font-family: "Roboto Light";
-	border-color: #ffffff;
-	background-color: #ffffff;
-	color: #6c757d;
+	font-family: "Roboto Light" !important;
+	border-color: #ffffff !important;
+	background-color: #ffffff !important;
+	color: #6c757d !important;
 }
 
 
 .navDropDown:hover {
-	background-color: #ffffff;
-	border-color: #ffffff;
-	background-color: #ffffff;
-	color: rgba(0,0,0,.7);
+	background-color: #ffffff !important;
+	border-color: #ffffff !important;
+	background-color: #ffffff !important;
+	color: rgba(0,0,0,.7) !important;
 }
 
 .navDropDown:active  {
-	background-color: #ffffff;
-	border-color: #ffffff;
-	background-color: #ffffff;
-	color: rgba(0,0,0,.7);
+	background-color: #ffffff !important;
+	border-color: #ffffff !important;
+	background-color: #ffffff !important;
+	color: rgba(0,0,0,.7) !important;
 }
 
 .navDropDown:focus  {
-	background-color: #ffffff;
-	border-color: #ffffff;
-	background-color: #ffffff;
-	color: rgba(0,0,0,.7);
-	box-shadow: none;
+	background-color: #ffffff !important;
+	border-color: #ffffff !important;
+	background-color: #ffffff !important;
+	color: rgba(0,0,0,.7) !important;
+	box-shadow: none !important;
   	outline: none !important;
 }
 
@@ -55,6 +56,11 @@
 }
 
 .multiSelect:focus {
+	box-shadow: none;
+	outline: none !important;
+}
+
+.multiSelect:active {
 	box-shadow: none;
 	outline: none !important;
 }

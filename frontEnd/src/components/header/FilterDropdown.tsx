@@ -7,7 +7,6 @@ import DropdownToggle from "react-bootstrap/DropdownToggle";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Multiselect from 'multiselect-dropdown-react';
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Row from "react-bootstrap/Row";
 import styles from "./FilterDropdown.module.scss";
 
@@ -46,7 +45,7 @@ export default class FilterDropdown extends Component<IFilterDropdownProps, IFil
 
 	render() {
 		return (
-			<Dropdown title="Filter" id="basic-nav-dropdown" className={styles.navDropDown} >
+			<Dropdown className={styles.navDropDown} >
 				<DropdownToggle id="id" className={styles.navDropDown}>
 					{"Filter"}
 				</DropdownToggle>
