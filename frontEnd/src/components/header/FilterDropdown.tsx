@@ -6,7 +6,7 @@ import DropdownMenu from "react-bootstrap/DropdownMenu";
 import DropdownToggle from "react-bootstrap/DropdownToggle";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
-import Multiselect from 'multiselect-dropdown-react';
+import Multiselect from './multiselect/Multiselect';
 import Row from "react-bootstrap/Row";
 import styles from "./FilterDropdown.module.scss";
 
@@ -72,7 +72,7 @@ export default class FilterDropdown extends Component<IFilterDropdownProps, IFil
 								/></Col>
 						</Row>
 						<Row>
-							<Multiselect className={styles.multiSelect} options={correspondant_options} onSelectOptions={this.result} />
+							<Multiselect placeholder="Select correspondant" options={correspondant_options} onSelectOptions={this.result} />
 						</Row>
 					</Form>
 					<Button onChange={() => { this.props.filter(this.state.query) }}
