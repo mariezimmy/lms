@@ -2,14 +2,84 @@
 	font-family: "Roboto Light";
 	src: url("../../Roboto-Light.ttf");
 }
+
   
-  .dropdownPadding {
-	padding-right: 30px;
-	padding-left: 30px;
+.navDropDown{
+	font-family: "Roboto Light";
+	border-color: #ffffff;
+	background-color: #ffffff;
+	color: #6c757d;
+}
+
+
+.navDropDown:hover {
+	background-color: #ffffff;
+	border-color: #ffffff;
+	background-color: #ffffff;
+	color: rgba(0,0,0,.7);
+}
+
+.navDropDown:active  {
+	background-color: #ffffff;
+	border-color: #ffffff;
+	background-color: #ffffff;
+	color: rgba(0,0,0,.7);
+}
+
+.navDropDown:focus  {
+	background-color: #ffffff;
+	border-color: #ffffff;
+	background-color: #ffffff;
+	color: rgba(0,0,0,.7);
+	box-shadow: none;
+  	outline: none !important;
+}
+
+.menu {
+	font-family: "Roboto Light";
+	background-color: #ffffff;
+	color: #6c757d;
+	padding: 10px;
+	width: 375%;
+}
+
+.formControl:focus {
+	box-shadow: none;
+	outline: none !important;
+	border-color: #8c2f39;
+	color: rgba(0,0,0,.7);
+}
+
+.multiSelect {
 	font-family: "Roboto Light";
 }
 
-.dropdownItem:active  {
+.multiSelect:focus {
+	box-shadow: none;
+	outline: none !important;
+}
+
+.multiSelect:hover {
+	box-shadow: none;
+	outline: none !important;
+}
+
+.submitButton {
+  border-color: #8c2f39;
+  background-color: #ffffff;
+  color: #8c2f39;
+  font-family: "Roboto Light";  
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.submitButton:hover {
+	border-color: #8c2f39;
 	background-color: #8c2f39;
+}
+
+.submitButton:focus {
+	box-shadow: none;
+  	outline: none !important;
 }
 

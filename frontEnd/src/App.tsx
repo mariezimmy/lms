@@ -39,6 +39,11 @@ export default class App extends Component<any, IAppState> {
     this.setState({ documents: docs })
   }
 
+  // stubbed for now
+  public async filter(query: any): Promise<void> {
+    await this.documentService.searchDocuments(query)
+  }
+
   public async loadDocuments() {
     let documents = await this.documentService.getDocuments();
     this.setState({ documents: documents })
@@ -56,7 +61,11 @@ export default class App extends Component<any, IAppState> {
               key={document.uniqueID}
               render={() => (
                 <div>
-                  <Header sort={this.sort.bind(this)} search={this.search.bind(this)} />
+                  <Header
+                    sort={this.sort.bind(this)}
+                    search={this.search.bind(this)}
+                    filter={this.filter.bind(this)}
+                  />
                   <div className={styles.App}>
                     <DocumentPage document={document} />
                   </div>
@@ -70,7 +79,11 @@ export default class App extends Component<any, IAppState> {
           path={"/"}
           render={() => (
             <div>
-              <Header sort={this.sort.bind(this)} search={this.search.bind(this)} />
+              <Header
+                sort={this.sort.bind(this)}
+                search={this.search.bind(this)}
+                filter={this.filter.bind(this)}
+              />
               <div className={styles.App}>
                 <br />
                 <Container className={styles.AppDocuments}>
