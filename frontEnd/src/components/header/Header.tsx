@@ -12,6 +12,7 @@ import SortBy from "../../model/SortBy";
 interface IHeaderProps {
   sort: (sortBy: SortBy) => Promise<void>;
   search: (query: string) => Promise<void>;
+  filter: (query: any) => Promise<void>;
 }
 
 export default class Header extends Component<IHeaderProps> {
@@ -35,8 +36,8 @@ export default class Header extends Component<IHeaderProps> {
         <Navbar.Collapse id="basic-navbar-nav" />
         <Nav className="mr-auto">
           <SearchBar search={this.props.search} />
-          <FilterDropdown />
           <SortDropdown sort={this.props.sort} />
+          <FilterDropdown filter={this.props.filter} />
         </Nav>
       </Navbar>
     );
