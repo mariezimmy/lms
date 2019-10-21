@@ -29,9 +29,11 @@ export default class DocumentList extends Component<IDocumentListProps, IDocumen
 	}
 
 	private setCurrentPage(newPage: number) {
-		console.log("setting current pageeufwofweoufiewfuwei!");
-		console.log(newPage)
-		// this.setState({ currentPage: newPage });
+		if (newPage < 0 || newPage > this.totalPages - 1) {
+			this.setState({ currentPage: this.state.currentPage });
+		} else {
+			this.setState({ currentPage: newPage });
+		}
 	}
 
 	render(): JSX.Element {
@@ -53,27 +55,21 @@ export default class DocumentList extends Component<IDocumentListProps, IDocumen
 				</div>
 				<div className={styles.Pagination}>
 					<Pagination>
-						{
-							this.state.currentPage > 0 ?
-								<>
-									<Pagination.First onClick={this.setCurrentPage(0)} />
-									<Pagination.Prev onClick={this.setCurrentPage(this.state.currentPage - 1)} />
-									<Pagination.Item onClick={this.setCurrentPage(this.state.currentPage - 1)} >{this.state.currentPage}</Pagination.Item>
-								</>
-								:
-								<></>
-						}
+						<Pagination.First onClick={() => { this.setCurrentPage(0) }} />
+						<Pagination.Prev onClick={() => { this.setCurrentPage(this.state.currentPage - 1) }} />
+						<Pagination.Ellipsis />
+						{this.state.currentPage > 0 ? <>
+							<Pagination.Item onClick={() => { this.setCurrentPage(this.state.currentPage - 1) }} >{this.state.currentPage}</Pagination.Item>
+						</> : <></>}
+
 						<Pagination.Item active>{this.state.currentPage + 1}</Pagination.Item>
-						{
-							this.state.currentPage < this.totalPages - 1 ?
-								<>
-									<Pagination.Item onClick={this.setCurrentPage(this.state.currentPage + 1)} >{this.state.currentPage + 2}</Pagination.Item>
-									<Pagination.Next onClick={this.setCurrentPage(this.state.currentPage + 1)} />
-									<Pagination.Last onClick={this.setCurrentPage(this.totalPages - 1)} />
-								</>
-								:
-								<></>
-						}
+
+						{this.state.currentPage < this.totalPages - 1 ? <>
+							<Pagination.Item onClick={() => { this.setCurrentPage(this.state.currentPage + 1) }} >{this.state.currentPage + 2}</Pagination.Item>
+						</> : <></>}
+						<Pagination.Ellipsis />
+						<Pagination.Next onClick={() => { this.setCurrentPage(this.state.currentPage + 1) }} />
+						<Pagination.Last onClick={() => { this.setCurrentPage(this.totalPages - 1) }} />
 					</Pagination>
 				</div>
 			</div>
