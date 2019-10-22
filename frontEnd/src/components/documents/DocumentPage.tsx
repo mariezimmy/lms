@@ -12,9 +12,11 @@ export default class DocumentPage extends Component<IDocumentPageProps> {
   render(): JSX.Element {
     return (
       <Jumbotron fluid className={styles.Body}>
-        <Container>
+        <Container className = {styles.textbckd}>
           <h1 className={styles.Title}>{this.props.document.title || "Unknown"} </h1>
+          <h4 className={styles.Title}>{this.props.document.author || "Unknown"} </h4>
           <br />
+          <hr></hr>
           <br />
           <p className={styles.Text}> {this.props.document.text || "Unknown"} </p>
         </Container>
