@@ -10,89 +10,92 @@ import TestDocumentService from "./services/documentService/TestDocumentService"
 import IDocumentService from "./services/documentService/IDocumentService";
 import styles from "./App.module.scss";
 import LitDocument from "./model/LitDocument";
+import LocalDocumentService from "./services/documentService/LocalDocumentService";
+import SortBy from "./model/SortBy";
+import DocumentList from "./components/DocumentList";
 
 interface IAppState {
-  documents?: LitDocument[];
+	documents?: LitDocument[];
 }
 
 export default class App extends Component<any, IAppState> {
-  private documentService: IDocumentService;
+	private documentService: IDocumentService;
 
-  constructor(props: any) {
-    super(props);
-    this.state = {};
+	constructor(props: any) {
+		super(props);
+		this.state = {};
 
-    this.documentService = new TestDocumentService();
-    this.loadDocuments();
-  }
+		//this.documentService = new TestDocumentService();
+		this.documentService = new TestDocumentService();
+		this.loadDocuments();
+	}
 
-  public async loadDocuments() {
-    let documents = await this.documentService.getDocuments();
-    this.setState({
-      documents: documents
-    });
-  }
+	public async sort(sortBy: SortBy): Promise<void> {
+		let docs = await this.documentService.sortDocuments(sortBy)
+		this.setState({ documents: docs })
+	}
 
-  render(): JSX.Element {
-    let documents = this.state.documents; //Just a shorthand
-    console.log(documents);
+	public async search(query: string): Promise<void> {
+		let docs = await this.documentService.searchDocuments(query)
+		this.setState({ documents: docs })
+	}
 
-    return (
-      <BrowserRouter>
-        {documents &&
-          documents.map(document => (
-            <Route
-              exact
-              path={document.path}
-              key={document.uniqueID}
-              render={() => (
-                <div>
-                  <Header />
-                  <div className={styles.App}>
-                    <DocumentPage document={document} />
-                  </div>
-                </div>
-              )}
-            />
-          ))}
-        <Route
-          exact
-          path={"/"}
-          render={() => (
-            <div>
-              <Header />
-              <div className={styles.App}>
-                <br />
-                <Container className={styles.AppDocuments}>
-                  <Row>
-                    {documents &&
-                      documents.slice(0, 3).map(document => (
-                        <Col key={document.uniqueID}>
-                          <Link to={document.path}>
-                            <DocumentPreview document={document} />
-                          </Link>
-                        </Col>
-                      ))}
-                  </Row>
-                  <br />
-                  <br />
-                  <Row>
-                    {documents &&
-                      documents.slice(3, 6).map(document => (
-                        <Col key={document.uniqueID}>
-                          <Link to={document.path}>
-                            <DocumentPreview document={document} />
-                          </Link>
-                        </Col>
-                      ))}
-                  </Row>
-                </Container>
-                <header className={styles.AppBody} />
-              </div>
-            </div>
-          )}
-        />
-      </BrowserRouter>
-    );
-  }
+	// stubbed for now
+	public async filter(query: any): Promise<void> {
+		await this.documentService.searchDocuments(query)
+	}
+
+	public async loadDocuments() {
+		let documents = await this.documentService.getDocuments();
+		this.setState({ documents: documents })
+	}
+
+	render(): JSX.Element {
+		let documents = this.state.documents; //Just a shorthand
+		return (
+			<BrowserRouter>
+				{documents &&
+					documents.map(document => (
+						<Route
+							exact
+							path={"/" + document.uniqueID.toString()}
+							key={document.uniqueID}
+							render={() => (
+								<div>
+									<Header
+										sort={this.sort.bind(this)}
+										search={this.search.bind(this)}
+										filter={this.filter.bind(this)}
+									/>
+									<div className={styles.App}>
+										<DocumentPage document={document} />
+									</div>
+								</div>
+							)}
+						/>
+					))}
+
+				<Route
+					exact
+					path={"/"}
+					render={() => (
+						<div>
+							<Header
+								sort={this.sort.bind(this)}
+								search={this.search.bind(this)}
+								filter={this.filter.bind(this)}
+							/>
+							<div className={styles.App}>
+								{this.state.documents &&
+									<DocumentList
+										documents={this.state.documents}
+									/>
+								}
+							</div>
+						</div>
+					)}
+				/>
+			</BrowserRouter>
+		);
+	}
 }

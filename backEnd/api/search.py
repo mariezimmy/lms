@@ -87,3 +87,4 @@ def tag_search(query):
             None, 500, {'Content-Type': 'application/json'})
 
     return response
+
