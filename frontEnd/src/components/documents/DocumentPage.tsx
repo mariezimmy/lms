@@ -37,7 +37,7 @@ export default class DocumentPage extends Component<IDocumentPageProps, IDocumen
 	render(): JSX.Element {
 		return (
 			<Jumbotron fluid className={styles.Body}>
-				<Container>
+				<Container className={styles.textbckd}>
 					<Row>
 						<Col sm={8}>
 							<h1 className={styles.Title}>{this.props.document.title || "Unknown"} </h1>
