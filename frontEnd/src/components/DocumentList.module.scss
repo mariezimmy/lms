@@ -1,7 +1,8 @@
 .AppDocuments {
 	text-align: center;
 	justify-content: center;
-	padding-left: 80px;
+	padding-right: 70px;
+	padding-top: 5px;
 
 	display: flex;
 	flex-direction: row;
@@ -13,4 +14,12 @@
 
 .Pagination {
 	//TODO CENTER
+}
+
+.individualDocuments {
+	padding: 20px;
+}
+
+.left {
+	padding-left: 70px;
 }
