@@ -18,7 +18,7 @@ interface IDocumentListProps {
 
 export default class DocumentList extends Component<IDocumentListProps, IDocumentListState> {
 
-	private maxDocumentsPerPage: number = 8; // Probably change this to calculate dynamically
+	private maxDocumentsPerPage: number = 6; // Probably change this to calculate dynamically
 	private totalPages: number = 0;
 
 	constructor(props: IDocumentListProps) {
@@ -42,16 +42,37 @@ export default class DocumentList extends Component<IDocumentListProps, IDocumen
 			this.maxDocumentsPerPage * (this.state.currentPage + 1)
 		);
 
+		let documentRow1: LitDocument[] = documentsDisplayedThisPage.slice(0, 3);
+		let documentRow2: LitDocument[] = documentsDisplayedThisPage.slice(3, 6);
+
 		console.log(documentsDisplayedThisPage);
 
 		return (
 			<div>
 				<div className={styles.AppDocuments}>
-					{documentsDisplayedThisPage.map(document => (
+					{/* {documentsDisplayedThisPage.map(document => (
 						<Link to={"/" + document.uniqueID.toString()} key={document.uniqueID}>
 							<DocumentPreview document={document} />
 						</Link>
-					))}
+					))} */}
+					<Row className={styles.individualDocuments}>
+						{documentRow1.map(document => (
+							<Link to={"/" + document.uniqueID.toString()} key={document.uniqueID}>
+								<div className={styles.left}>
+									<DocumentPreview document={document} />
+								</div>
+							</Link>
+						))}
+					</Row>
+					<Row className={styles.individualDocuments}>
+						{documentRow2.map(document => (
+							<Link to={"/" + document.uniqueID.toString()} key={document.uniqueID}>
+								<div className={styles.left}>
+									<DocumentPreview document={document} />
+								</div>
+							</Link>
+						))}
+					</Row>
 				</div>
 				<div className={styles.Pagination}>
 					<Pagination>
