@@ -1,3 +1,8 @@
+@font-face {
+	font-family: "Roboto Light";
+	src: url("../Roboto-Light.ttf");
+}
+
 .AppDocuments {
 	text-align: center;
 	justify-content: center;
@@ -13,7 +18,14 @@
 }
 
 .Pagination {
-	//TODO CENTER
+	justify-content: center;
+}
+
+.PaginationItems > * {
+	background-color: #8c2f39 !important;
+	color: white !important;
+	font-family: "Roboto Light";
+	border-color: white !important;
 }
 
 .individualDocuments {
