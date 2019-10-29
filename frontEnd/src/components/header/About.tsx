@@ -15,6 +15,37 @@ export default class About extends Component<IAboutProps> {
     render() {
         return (
             <div>
+                <h1 className={styles.hello}>
+                    <b>The Content Creator</b>
+                </h1>
+
+                <Row className={styles.rowPadding}>
+                    <Figure className={styles.avatars}>
+                        <Figure.Image
+                            src="jonathan.jpg"
+                            alt="Jonathan"
+                        />
+                        {/* 
+                        <b className={styles.caption}>Jonathan Shelley (Ph.D., UC Berkeley)</b>
+                        <p className={styles.caption}>Jonathan Shelley (Ph.D., UC Berkeley) is a Marion L. Brittain Postdoctoral Fellow at Georgia Tech. His research focuses on theories and depictions of friendship in early modern prose, poetry, and drama.</p> */}
+                    </Figure>
+                </Row>
+                <p>
+                    <b className={styles.caption}>Jonathan Shelley (Ph.D., UC Berkeley)</b>
+                </p>
+                <div className={styles.test}>
+                    <p className={styles.caption}>Jonathan Shelley (Ph.D., UC Berkeley) is a Marion L. Brittain Postdoctoral Fellow at Georgia Tech. His research focuses on theories and depictions of friendship in early modern prose, poetry, and drama.</p>
+
+                </div>
+
+
+                <h1 className={styles.hello}>
+                    <b>The Developers</b>
+                </h1>
+                <div className={styles.test}>
+                    <p className={styles.caption}> Hi! We're five Georgia Tech students. We are Junior Design developers building an interactive repository
+                of John Donne's letters for our client, Dr. Jonathan Shelley.</p>
+                </div>
                 <Row className={styles.rowPadding}>
                     <Figure className={styles.avatars}>
                         <Figure.Image
@@ -22,7 +53,8 @@ export default class About extends Component<IAboutProps> {
                             alt="Alice"
                         />
                         <Figure.Caption className={styles.caption}>
-                            Alice
+                            <b>Alice</b>
+                            <p>I'm a fullstack developer. In my free time, I enjoy x, y, and z.</p>
                         </Figure.Caption>
                     </Figure>
 
@@ -33,7 +65,8 @@ export default class About extends Component<IAboutProps> {
                             alt="john"
                         />
                         <Figure.Caption className={styles.caption}>
-                            John
+                            <b>John</b>
+                            <p>I'm a backend developer. In my free time, I enjoy x, y, and z.</p>
                         </Figure.Caption>
                     </Figure>
 
@@ -44,7 +77,8 @@ export default class About extends Component<IAboutProps> {
                             alt="Kyle"
                         />
                         <Figure.Caption className={styles.caption}>
-                            Kyle
+                            <b>Kyle</b>
+                            <p>I'm a backend developer. In my free time, I enjoy x, y, and z.</p>
                         </Figure.Caption>
                     </Figure>
 
@@ -56,7 +90,8 @@ export default class About extends Component<IAboutProps> {
                             alt="Marie"
                         />
                         <Figure.Caption className={styles.caption}>
-                            Marie
+                            <b>Marie</b>
+                            <p>I'm a fullstack developer. In my free time, I enjoy knitting, making pixel art, and cooking.</p>
                         </Figure.Caption>
                     </Figure>
 
@@ -67,10 +102,10 @@ export default class About extends Component<IAboutProps> {
                             alt="Sarah"
                         />
                         <Figure.Caption className={styles.caption}>
-                            Sarah
+                            <b>Sarah</b>
+                            <p>I'm a frontend developer. In my free time, reading, photography, and playing with my hamster Pancake.</p>
                         </Figure.Caption>
                     </Figure>
-
                 </Row>
             </div >
         );
