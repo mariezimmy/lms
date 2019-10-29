@@ -1,3 +1,8 @@
+@font-face {
+	font-family: "Roboto Light";
+	src: url("../../Roboto-Light.ttf");
+}
+
 .logo {
   align-content: left;
   align-items: left;
@@ -14,4 +19,16 @@
 
 #headerbckgd {
   background-color: white;
+}
+
+.about {
+  padding-left: 550px;
+  font-family: "Roboto Light";
+  color: #6c757d !important;
+  padding-top: 5px;
+}
+
+.a {
+  font-family: "Roboto Light";
+  color: #6c757d !important;
 }

@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "Roboto Thin";
+    src: url("../../Roboto-Thin.ttf");
+}
+
+.caption {
+    color: white;
+    font-size: 130%;
+    font-family: "Roboto Thin";
+}
+
+.avatars {
+    height: 20%;
+    width: 20%;
+}
+
+.inBetween {
+    width: 20px;
+}
+
+.rowPadding {
+    padding: 10px;
+    justify-content: center;
+}

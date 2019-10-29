@@ -42,19 +42,14 @@ export default class DocumentList extends Component<IDocumentListProps, IDocumen
 			this.maxDocumentsPerPage * (this.state.currentPage + 1)
 		);
 
-		let documentRow1: LitDocument[] = documentsDisplayedThisPage.slice(0, 3);
-		let documentRow2: LitDocument[] = documentsDisplayedThisPage.slice(3, 6);
+		let documentRow1: LitDocument[] = documentsDisplayedThisPage.slice(0, this.maxDocumentsPerPage / 2);
+		let documentRow2: LitDocument[] = documentsDisplayedThisPage.slice(this.maxDocumentsPerPage / 2, this.maxDocumentsPerPage);
 
 		console.log(documentsDisplayedThisPage);
 
 		return (
 			<div>
 				<div className={styles.AppDocuments}>
-					{/* {documentsDisplayedThisPage.map(document => (
-						<Link to={"/" + document.uniqueID.toString()} key={document.uniqueID}>
-							<DocumentPreview document={document} />
-						</Link>
-					))} */}
 					<Row className={styles.individualDocuments}>
 						{documentRow1.map(document => (
 							<Link to={"/" + document.uniqueID.toString()} key={document.uniqueID}>

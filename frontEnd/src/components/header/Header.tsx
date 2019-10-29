@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Image from "react-bootstrap/Image";
+import About from "./About";
 import SortDropdown from "./SortDropdown";
 import FilterDropdown from "./FilterDropdown";
 import SearchBar from "./SearchBar";
@@ -38,6 +39,12 @@ export default class Header extends Component<IHeaderProps> {
           <SearchBar search={this.props.search} />
           <SortDropdown sort={this.props.sort} />
           <FilterDropdown filter={this.props.filter} />
+          <div className={styles.about}>
+            <Link to={"/about"} className={styles.a}>
+              <p>About the Developers</p>
+            </Link>
+          </div>
+
         </Nav>
       </Navbar>
     );

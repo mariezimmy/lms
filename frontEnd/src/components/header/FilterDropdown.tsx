@@ -72,7 +72,7 @@ export default class FilterDropdown extends Component<IFilterDropdownProps, IFil
 								/></Col>
 						</Row>
 						<Row>
-							<Multiselect placeholder="Select correspondant" options={correspondant_options} onSelectOptions={this.result} />
+							<Multiselect placeholder="Select correspondant(s)" options={correspondant_options} onSelectOptions={this.result} />
 						</Row>
 					</Form>
 					<Button onChange={() => { this.props.filter(this.state.query) }}
