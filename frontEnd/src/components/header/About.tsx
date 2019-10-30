@@ -16,18 +16,15 @@ export default class About extends Component<IAboutProps> {
         return (
             <div>
                 <h1 className={styles.hello}>
-                    <b>The Content Creator</b>
+                    <b>The Project Lead</b>
                 </h1>
 
                 <Row className={styles.rowPadding}>
                     <Figure className={styles.avatars}>
                         <Figure.Image
-                            src="jonathan.jpg"
+                            src="jonathan.png"
                             alt="Jonathan"
                         />
-                        {/* 
-                        <b className={styles.caption}>Jonathan Shelley (Ph.D., UC Berkeley)</b>
-                        <p className={styles.caption}>Jonathan Shelley (Ph.D., UC Berkeley) is a Marion L. Brittain Postdoctoral Fellow at Georgia Tech. His research focuses on theories and depictions of friendship in early modern prose, poetry, and drama.</p> */}
                     </Figure>
                 </Row>
                 <p>
