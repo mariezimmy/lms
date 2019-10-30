@@ -42,19 +42,14 @@ export default class DocumentList extends Component<IDocumentListProps, IDocumen
 			this.maxDocumentsPerPage * (this.state.currentPage + 1)
 		);
 
-		let documentRow1: LitDocument[] = documentsDisplayedThisPage.slice(0, 3);
-		let documentRow2: LitDocument[] = documentsDisplayedThisPage.slice(3, 6);
+		let documentRow1: LitDocument[] = documentsDisplayedThisPage.slice(0, this.maxDocumentsPerPage / 2);
+		let documentRow2: LitDocument[] = documentsDisplayedThisPage.slice(this.maxDocumentsPerPage / 2, this.maxDocumentsPerPage);
 
 		console.log(documentsDisplayedThisPage);
 
 		return (
 			<div>
 				<div className={styles.AppDocuments}>
-					{/* {documentsDisplayedThisPage.map(document => (
-						<Link to={"/" + document.uniqueID.toString()} key={document.uniqueID}>
-							<DocumentPreview document={document} />
-						</Link>
-					))} */}
 					<Row className={styles.individualDocuments}>
 						{documentRow1.map(document => (
 							<Link to={"/" + document.uniqueID.toString()} key={document.uniqueID}>
@@ -75,22 +70,22 @@ export default class DocumentList extends Component<IDocumentListProps, IDocumen
 					</Row>
 				</div>
 				<div className={styles.Pagination}>
-					<Pagination>
-						<Pagination.First onClick={() => { this.setCurrentPage(0) }} />
-						<Pagination.Prev onClick={() => { this.setCurrentPage(this.state.currentPage - 1) }} />
-						<Pagination.Ellipsis />
+					<Pagination className={styles.Pagination}>
+						<Pagination.First className={styles.PaginationItems} onClick={() => { this.setCurrentPage(0) }} />
+						<Pagination.Prev className={styles.PaginationItems} onClick={() => { this.setCurrentPage(this.state.currentPage - 1) }} />
+						<Pagination.Ellipsis className={styles.PaginationItems} />
 						{this.state.currentPage > 0 ? <>
-							<Pagination.Item onClick={() => { this.setCurrentPage(this.state.currentPage - 1) }} >{this.state.currentPage}</Pagination.Item>
+							<Pagination.Item className={styles.PaginationItems} onClick={() => { this.setCurrentPage(this.state.currentPage - 1) }} >{this.state.currentPage}</Pagination.Item>
 						</> : <></>}
 
-						<Pagination.Item active>{this.state.currentPage + 1}</Pagination.Item>
+						<Pagination.Item className={styles.PaginationItems} active>{this.state.currentPage + 1}</Pagination.Item>
 
 						{this.state.currentPage < this.totalPages - 1 ? <>
-							<Pagination.Item onClick={() => { this.setCurrentPage(this.state.currentPage + 1) }} >{this.state.currentPage + 2}</Pagination.Item>
+							<Pagination.Item className={styles.PaginationItems} onClick={() => { this.setCurrentPage(this.state.currentPage + 1) }} >{this.state.currentPage + 2}</Pagination.Item>
 						</> : <></>}
-						<Pagination.Ellipsis />
-						<Pagination.Next onClick={() => { this.setCurrentPage(this.state.currentPage + 1) }} />
-						<Pagination.Last onClick={() => { this.setCurrentPage(this.totalPages - 1) }} />
+						<Pagination.Ellipsis className={styles.PaginationItems} />
+						<Pagination.Next className={styles.PaginationItems} onClick={() => { this.setCurrentPage(this.state.currentPage + 1) }} />
+						<Pagination.Last className={styles.PaginationItems} onClick={() => { this.setCurrentPage(this.totalPages - 1) }} />
 					</Pagination>
 				</div>
 			</div>

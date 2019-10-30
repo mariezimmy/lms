@@ -1,17 +1,13 @@
 import React, { Component } from "react";
 import Header from "./components/header/Header";
-import DocumentPreview from "./components/documents/DocumentPreview";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 import DocumentPage from "./components/documents/DocumentPage";
 import TestDocumentService from "./services/documentService/TestDocumentService";
 import IDocumentService from "./services/documentService/IDocumentService";
 import styles from "./App.module.scss";
 import LitDocument from "./model/LitDocument";
-import LocalDocumentService from "./services/documentService/LocalDocumentService";
 import SortBy from "./model/SortBy";
+import About from "./components/header/About";
 import DocumentList from "./components/DocumentList";
 
 interface IAppState {
@@ -95,6 +91,24 @@ export default class App extends Component<any, IAppState> {
 						</div>
 					)}
 				/>
+
+				<Route
+					exact
+					path={"/about"}
+					render={() => (
+						<div>
+							<Header
+								sort={this.sort.bind(this)}
+								search={this.search.bind(this)}
+								filter={this.filter.bind(this)}
+							/>
+							<div className={styles.App}>
+								<About></About>
+							</div>
+						</div>
+					)}
+				/>
+
 			</BrowserRouter>
 		);
 	}
