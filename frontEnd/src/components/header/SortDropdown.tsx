@@ -10,7 +10,7 @@ interface ISortDropdownProps {
 
 export default class SortDropdown extends Component<ISortDropdownProps> {
 
-	private sorts: SortBy[] = [SortBy.TitleAZ, SortBy.TitleZA, SortBy.AuthorAZ, SortBy.AuthorZA,]
+	private sorts: SortBy[] = [SortBy.TitleAZ, SortBy.TitleZA, SortBy.AuthorAZ, SortBy.AuthorZA, SortBy.CorrespondentAZ, SortBy.CorrespondentZA, SortBy.DateNewestToOldest, SortBy.DateOldestToNewest]
 
 	constructor(props: any) {
 		super(props);
