@@ -33,19 +33,22 @@ export default class Header extends Component<IHeaderProps> {
             />
           </Link>
         </Nav>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" />
-        <Nav className="mr-auto">
-          <SearchBar search={this.props.search} />
-          <SortDropdown sort={this.props.sort} />
-          <FilterDropdown filter={this.props.filter} />
-          <div className={styles.about}>
-            <Link to={"/about"} className={styles.a}>
-              <p>About the Developers</p>
-            </Link>
-          </div>
 
-        </Nav>
+        <div className = {styles.subheader}>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav" />
+          <Nav className="mr-auto">
+            <SearchBar search={this.props.search} />
+            <SortDropdown sort={this.props.sort} />
+            <FilterDropdown filter={this.props.filter} />
+            <div className={styles.about}>
+              <Link to={"/about"} className={styles.a}>
+                <p>About the Developers</p>
+              </Link>
+            </div>
+
+          </Nav>
+        </div>
       </Navbar>
     );
   }

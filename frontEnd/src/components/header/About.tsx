@@ -100,7 +100,7 @@ export default class About extends Component<IAboutProps> {
                         />
                         <Figure.Caption className={styles.caption}>
                             <b>Sarah</b>
-                            <p>I'm a frontend developer. In my free time, reading, photography, and playing with my hamster Pancake.</p>
+                            <p>I'm a frontend developer. In my free time, I enjoy reading, photography, and playing with my hamster Pancake.</p>
                         </Figure.Caption>
                     </Figure>
                 </Row>
