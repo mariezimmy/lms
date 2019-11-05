@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Image from "react-bootstrap/Image";
 import Figure from "react-bootstrap/Figure";
 import Row from "react-bootstrap/Row";
 import styles from "./About.module.scss";

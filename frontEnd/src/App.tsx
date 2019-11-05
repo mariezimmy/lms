@@ -88,7 +88,7 @@ export default class App extends Component<any, IAppState> {
 										documents={this.state.documents}
 									/>
 								}
-								<br/>
+								<br />
 							</div>
 						</div>
 					)}

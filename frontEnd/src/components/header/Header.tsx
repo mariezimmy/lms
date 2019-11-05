@@ -2,12 +2,11 @@ import React, { Component } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Image from "react-bootstrap/Image";
-import About from "./About";
 import SortDropdown from "./SortDropdown";
 import FilterDropdown from "./FilterDropdown";
 import SearchBar from "./SearchBar";
 import styles from "./Header.module.scss";
-import { BrowserRouter, Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SortBy from "../../model/SortBy";
 
 interface IHeaderProps {
@@ -34,7 +33,7 @@ export default class Header extends Component<IHeaderProps> {
           </Link>
         </Nav>
 
-        <div className = {styles.subheader}>
+        <div className={styles.subheader}>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" />
           <Nav className="mr-auto">

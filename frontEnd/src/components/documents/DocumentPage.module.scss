@@ -1,3 +1,57 @@
+@font-face {
+	font-family: "Roboto Light";
+	src: url("../../Roboto-Light.ttf");
+}
+
+.width {
+  width: 30%;
+}
+
+.left {
+  justify-content: left;
+}
+
+.padding {
+  padding-bottom: 3%;
+  padding-top: 3%;
+}
+
+.tags {
+  font-family: "Roboto Light";
+  justify-content: left;
+}
+
+.tagForm {
+  border-color: #8c2f39;
+  font-family: "Roboto Light";
+  width: 90%;
+}
+
+.tagForm:focus {
+  box-shadow: none;
+  border-color: #8c2f39;
+}
+
+.tagButton {
+  border-color: #8c2f39;
+  color: #8c2f39;
+  background-color: white;
+  font-family: "Roboto Light";
+}
+
+.tagButton:hover {
+  border-color: #8c2f39;
+  background-color: #8c2f39;
+  color: #ffffff;
+}
+
+.tagButton {
+  border-color: #8c2f39;
+  color: #8c2f39;
+  background-color: white;
+  font-family: "Roboto Light";
+}
+
 .Body {
   background-color: #ecddc0;
   margin: 0;
