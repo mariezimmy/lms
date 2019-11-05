@@ -22,6 +22,7 @@ interface IDocumentPageProps {
 interface IDocumentPageState {
 	comments?: DocComment[];
 	tag: string;
+	currentTags: string[];
 }
 
 export default class DocumentPage extends Component<IDocumentPageProps, IDocumentPageState> {
@@ -31,7 +32,7 @@ export default class DocumentPage extends Component<IDocumentPageProps, IDocumen
 
 	constructor(props: IDocumentPageProps) {
 		super(props);
-		this.state = { comments: undefined, tag: "" };
+		this.state = { comments: undefined, tag: "", currentTags: this.props.document.tags || [] };
 		this.commentService = new TestCommentService();
 		this.tagService = new LocalTagService();
 		this.getComments(this.props.document);
@@ -43,7 +44,10 @@ export default class DocumentPage extends Component<IDocumentPageProps, IDocumen
 	}
 
 	private async addTag(document: LitDocument, tag: string) {
+		var updatedTags = this.state.currentTags.concat(tag);
+		this.setState({ currentTags: updatedTags });
 		let taggedDoc = await this.tagService.tagDocument(document, tag);
+		this.forceUpdate(); // hacky for now, but updates currentTags dynamically
 		return taggedDoc;
 	}
 
@@ -79,7 +83,7 @@ export default class DocumentPage extends Component<IDocumentPageProps, IDocumen
 					<Row className={styles.padding}>
 						<Col sm={4}>
 							{/* need to update this dynamically */}
-							<p className={styles.tags}> Current tags: {this.formatTags(this.props.document.tags || [])}</p>
+							<p className={styles.tags}> Current tags: {this.formatTags(this.state.currentTags)}</p>
 						</Col>
 						<Col>
 							<Form className={styles.left}>
