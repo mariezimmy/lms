@@ -28,7 +28,7 @@ export default class LocalDocumentService implements IDocumentService {
     console.log(documents);
     documents = documents.map(document => {
       return new LitDocument(
-        document.uniqueID,
+        document._id,
         document.author,
         document.text,
         document.title,
@@ -51,7 +51,7 @@ export default class LocalDocumentService implements IDocumentService {
     console.log(documents);
     documents = documents.map(document => {
       return new LitDocument(
-        document.uniqueID,
+        document._id,
         document.author,
         document.text,
         document.title,
