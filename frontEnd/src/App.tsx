@@ -24,7 +24,6 @@ export default class App extends Component<any, IAppState> {
 
 		this.documentService = new LocalDocumentService(); // uncomment for backend services
 		//this.documentService = new TestDocumentService(); // uncomment for frontend testing
-		this.loadDocuments();
 	}
 
 	public async sort(sortBy: SortBy): Promise<void> {
@@ -48,6 +47,7 @@ export default class App extends Component<any, IAppState> {
 	}
 
 	render(): JSX.Element {
+		this.loadDocuments();
 		let documents = this.state.documents; //Just a shorthand
 		return (
 			<BrowserRouter>
