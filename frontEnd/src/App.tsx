@@ -22,8 +22,8 @@ export default class App extends Component<any, IAppState> {
 		super(props);
 		this.state = {};
 
-		//this.documentService = new LocalDocumentService(); // uncomment for backend services
-		this.documentService = new TestDocumentService(); // uncomment for frontend testing
+		this.documentService = new LocalDocumentService(); // uncomment for backend services
+		//this.documentService = new TestDocumentService(); // uncomment for frontend testing
 		this.loadDocuments();
 	}
 
