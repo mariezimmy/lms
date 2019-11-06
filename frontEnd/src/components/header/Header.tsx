@@ -13,6 +13,7 @@ interface IHeaderProps {
   sort: (sortBy: SortBy) => Promise<void>;
   search: (query: string) => Promise<void>;
   filter: (query: any) => Promise<void>;
+  loadDocuments: () => Promise<void>;
 }
 
 export default class Header extends Component<IHeaderProps> {
@@ -26,6 +27,7 @@ export default class Header extends Component<IHeaderProps> {
         <Nav className="mr-auto">
           <Link to={"/"}>
             <Image
+              onClick={() => { this.props.loadDocuments() }}
               src="lms.png"
               className={styles.logo}
               alt="BiblioFile logo"
