@@ -21,10 +21,10 @@ export default class App extends Component<any, IAppState> {
 	constructor(props: any) {
 		super(props);
 		this.state = {};
-
-		//this.documentService = new LocalDocumentService(); // uncomment for backend services
-		this.documentService = new TestDocumentService(); // uncomment for frontend testing
+		this.documentService = new LocalDocumentService(); // uncomment for backend services
+		//this.documentService = new TestDocumentService(); // uncomment for frontend testing
 		this.loadDocuments();
+
 	}
 
 	public async sort(sortBy: SortBy): Promise<void> {
@@ -63,6 +63,7 @@ export default class App extends Component<any, IAppState> {
 										sort={this.sort.bind(this)}
 										search={this.search.bind(this)}
 										filter={this.filter.bind(this)}
+										loadDocuments={this.loadDocuments.bind(this)}
 									/>
 									<div className={styles.App}>
 										<DocumentPage document={document} />
@@ -81,6 +82,7 @@ export default class App extends Component<any, IAppState> {
 								sort={this.sort.bind(this)}
 								search={this.search.bind(this)}
 								filter={this.filter.bind(this)}
+								loadDocuments={this.loadDocuments.bind(this)}
 							/>
 							<div className={styles.App}>
 								{this.state.documents &&
@@ -88,7 +90,7 @@ export default class App extends Component<any, IAppState> {
 										documents={this.state.documents}
 									/>
 								}
-								<br/>
+								<br />
 							</div>
 						</div>
 					)}
@@ -103,6 +105,7 @@ export default class App extends Component<any, IAppState> {
 								sort={this.sort.bind(this)}
 								search={this.search.bind(this)}
 								filter={this.filter.bind(this)}
+								loadDocuments={this.loadDocuments.bind(this)}
 							/>
 							<div className={styles.App}>
 								<About></About>

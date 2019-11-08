@@ -72,19 +72,19 @@ def search(query):
 
     return response
 
-@doc_bp.route('/tag_search/<string:query>', methods=['GET'])
-def tag_search(query):
-    if(db):
-        found = list(db.docs.find({"tags": query}))
-        for d in found:
-            d['_id'] = str(d['_id'])
-        print(list(found))
-        found = json.dumps(list(found))
-        response = make_response(
-            found, 200, {'Content-Type': 'application/json'})
-    else:
-        response = make_response(
-            None, 500, {'Content-Type': 'application/json'})
+# @doc_bp.route('/<string:doc_id>/<string:query>', methods=['GET'])
+# def tag_search(query):
+#     if(db):
+#         found = list(db.docs.find({"tags": query}))
+#         for d in found:
+#             d['_id'] = str(d['_id'])
+#         print(list(found))
+#         found = json.dumps(list(found))
+#         response = make_response(
+#             found, 200, {'Content-Type': 'application/json'})
+#     else:
+#         response = make_response(
+#             None, 500, {'Content-Type': 'application/json'})
 
-    return response
+#     return response
 

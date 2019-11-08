@@ -13,7 +13,10 @@ export default class LocalDocumentService implements IDocumentService {
         document._id,
         document.author,
         document.text,
-        document.title
+        document.title,
+        undefined,
+        undefined,
+        document.tags
       );
     });
     return new Promise((resolve, reject) => resolve(documents));
@@ -28,7 +31,10 @@ export default class LocalDocumentService implements IDocumentService {
         document._id,
         document.author,
         document.text,
-        document.title
+        document.title,
+        undefined,
+        undefined,
+        document.tags
       );
     });
     return new Promise((resolve, reject) => resolve(documents));
@@ -48,7 +54,10 @@ export default class LocalDocumentService implements IDocumentService {
         document._id,
         document.author,
         document.text,
-        document.title
+        document.title,
+        undefined,
+        undefined,
+        document.tags
       );
     });
     return new Promise((resolve, reject) => resolve(documents));
