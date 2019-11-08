@@ -12,6 +12,10 @@ export default class TestDocumentService implements IDocumentService {
     return this.getDocuments();
   }
 
+  public async filterDocuments(query: string): Promise<LitDocument[]> {
+    return this.getDocuments();
+  }
+  
   public async getDocuments(): Promise<LitDocument[]> {
     let documents = [
       new LitDocument(

@@ -40,12 +40,13 @@ export default class App extends Component<any, IAppState> {
   }
 
   // stubbed for now
-  public async filter(query: any): Promise<void> {
-    await this.documentService.searchDocuments(query)
+  public async filter(query: string): Promise<void> {
+    let docs = await this.documentService.filterDocuments(query)
+    this.setState({ documents: docs })
   }
 
   public async loadDocuments() {
-    let documents = await this.documentService.getDocuments();
+    let documents = await this.documentService.getDocuments()
     this.setState({ documents: documents })
   }
 

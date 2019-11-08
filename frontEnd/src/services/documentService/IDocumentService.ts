@@ -5,4 +5,5 @@ export default interface IDocumentService {
 	getDocuments(): Promise<LitDocument[]>;
 	sortDocuments(sortBy: SortBy): Promise<LitDocument[]>;
 	searchDocuments(query: string): Promise<LitDocument[]>;
+    filterDocuments(query: string): Promise<LitDocument[]>;
 }

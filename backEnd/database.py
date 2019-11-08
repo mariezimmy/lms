@@ -26,6 +26,7 @@ class Database:
 
     def get_multi_doc(self, query):
         # EX: db.get_multi_doc({'author': 'John Donne'})
+        print("get_multi_doc query: ", query)
         doc = self.docs.find(query)
         return doc
 

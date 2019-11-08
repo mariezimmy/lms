@@ -42,6 +42,46 @@ export default class FilterDropdown extends Component<IFilterDropdownProps, IFil
 	result(params) {
 		console.log(params);
 	}
+    
+    buildQuery() {
+        
+        let queryString = "";
+        
+        if (this.state.month) {
+            queryString += "?month=" + this.state.month;
+        }
+        
+        if (this.state.day) {
+            if (queryString.length > 0) {
+                queryString += '&';
+            } else {
+                queryString += '?';
+            }
+            queryString += "day=" + this.state.day;
+        }
+        
+        if (this.state.year) {
+            if (queryString.length > 0) {
+                queryString += '&';
+            } else {
+                queryString += '?';
+            }
+            queryString += "year=" + this.state.year;
+        }
+        
+        if (this.state.correspondant) {
+            if (queryString.length > 0) {
+                queryString += '&';
+            } else {
+                queryString += '?';
+            }
+            queryString += "correspondant=" + this.state.correspondant;
+        }
+        
+        this.setState({ query: queryString });
+        this.result(queryString);
+        return queryString;
+    }
 
 	render() {
 		return (
@@ -56,27 +96,27 @@ export default class FilterDropdown extends Component<IFilterDropdownProps, IFil
 								<FormControl
 									className={styles.formControl}
 									placeholder="mm"
-									onChange={(event) => this.setState({ query: event.target.value })}
+									onChange={(event) => this.setState({ month: event.target.value })}
 								/></Col>
 							<Col>{"Day"}
 								<FormControl
 									className={styles.formControl}
 									placeholder="dd"
-									onChange={(event) => this.setState({ query: event.target.value })}
+									onChange={(event) => this.setState({ day: event.target.value })}
 								/></Col>
 							<Col>{"Year"}
 								<FormControl
 									className={styles.formControl}
 									placeholder="yyyy"
-									onChange={(event) => this.setState({ query: event.target.value })}
+									onChange={(event) => this.setState({ year: event.target.value })}
 								/></Col>
 						</Row>
 						<Row>
-							<Multiselect placeholder="Select correspondant" options={correspondant_options} onSelectOptions={this.result} />
+							<Multiselect placeholder="Select correspondant" options={correspondant_options} onChange={(event) => this.setState({ correspondant: event.target.value })} />
 						</Row>
 					</Form>
-					<Button onChange={() => { this.props.filter(this.state.query) }}
-						href={"#filter/" + this.state.query}
+					<Button onClick={() => { this.props.filter(this.buildQuery()) }}
+						href={"#filter" + this.state.query}
 						className={styles.submitButton}
 					>Apply
 					</Button>
