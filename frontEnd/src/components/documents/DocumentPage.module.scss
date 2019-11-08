@@ -14,6 +14,7 @@
 .padding {
   padding-bottom: 3%;
   padding-top: 3%;
+  padding-left: 50px;
 }
 
 .tags {
@@ -62,8 +63,8 @@
 .Text {
   text-align: left;
   text-align-last: left;
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 75px;
+  padding-right: 75px;
   font-size: 19px;
 }
 
@@ -73,8 +74,22 @@
   min-height: 81vh;
 }
 
+.tagbckd {
+  background-color: #faf6ef;
+}
+
 .Title {
   text-align: left;
-  padding-left: 100px;
+  padding-left: 75px;
   font-family: "Palatino Linotype";
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.Author {
+  text-align: left;
+  font-family: "Roboto Light";
+  font-size: 20px;
+  padding-left: 75px;
+  padding-top: 10px;
 }

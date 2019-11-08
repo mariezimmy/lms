@@ -66,47 +66,52 @@ export default class DocumentPage extends Component<IDocumentPageProps, IDocumen
 	render(): JSX.Element {
 		return (
 			<Jumbotron fluid className={styles.Body}>
-				<Container className={styles.textbckd}>
+				<Container>
 					<Row>
-						<Col sm={8}>
+						<Col sm={8} className={styles.textbckd}>
 							<h1 className={styles.Title}>{this.props.document.title || "Unknown"} </h1>
-							<br />
+							<h1 className={styles.Author}>{this.props.document.author || "Unknown"} </h1>
+							<hr></hr>
 							<br />
 							<p className={styles.Text}> {this.props.document.text || "Unknown"} </p>
+
+							<br />
+							<br />
+
+							<Row className={styles.padding}>
+								<Col sm={4}>
+									{/* need to update this dynamically */}
+									<p className={styles.tags}> Current tags: {this.formatTags(this.state.currentTags)}</p>
+								</Col>
+								<Col>
+									<Form className={styles.left}>
+										<Row>
+											<div>
+												<FormControl
+													type="tag"
+													className={styles.tagForm}
+													placeholder="Tag this document!"
+													onChange={(event) => this.setState({ tag: (event.target.value) })}
+												/>
+											</div>
+											<div>
+												<Button variant="outline-info" onClick={() => { this.addTag(this.props.document, this.state.tag) }}
+													href={'#tag/' + this.state.tag}
+													className={styles.tagButton}
+												>
+													Add Tag
+												</Button>
+											</div>
+										</Row>
+									</Form>
+								</Col>
+							</Row>
 						</Col>
+
 						<Col sm={4}>
 							<CommentSidebar
 								comments={this.state.comments}
 							/>
-						</Col>
-					</Row>
-					<Row className={styles.padding}>
-						<Col sm={4}>
-							{/* need to update this dynamically */}
-							<p className={styles.tags}> Current tags: {this.formatTags(this.state.currentTags)}</p>
-						</Col>
-						<Col>
-							<Form className={styles.left}>
-								<Row>
-									<div>
-										<FormControl
-											type="tag"
-											className={styles.tagForm}
-											placeholder="Tag this document!"
-											onChange={(event) => this.setState({ tag: (event.target.value) })}
-										/>
-									</div>
-									<div>
-										<Button variant="outline-info" onClick={() => { this.addTag(this.props.document, this.state.tag) }}
-											href={'#tag/' + this.state.tag}
-											className={styles.tagButton}
-										>
-											Add Tag
-        								</Button>
-									</div>
-								</Row>
-							</Form>
-
 						</Col>
 					</Row>
 				</Container>
