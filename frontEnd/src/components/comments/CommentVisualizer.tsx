@@ -11,8 +11,8 @@ export default class CommentVisualizer extends Component<CommentVisualizerProps>
 		console.log(this.props.comment);
 		return (
 			<div className={styles.Comment}>
-				<p>Author: {this.props.comment.author}</p>
-				<p>Comment: {this.props.comment.body}</p>
+				<p className={styles.commentAuthor}>{this.props.comment.author}</p>
+				<p className={styles.commentText}> {this.props.comment.body}</p>
 			</div>
 		);
 	}
