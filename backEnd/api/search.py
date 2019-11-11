@@ -31,7 +31,11 @@ def search(query):
         query = [PorterStemmer().stem(word.lower().translate(str.maketrans('', '', string.punctuation))) for word in query.split(" ")]
         print("Searching for: " + str(query))
 
-        docStrings = [" ".join(list(doc.values())) for doc in docs]
+        docStrings = list()
+        for doc in docs:
+            string_info = list(str(v) for v in doc.values())
+            docStrings.append(" ".join(string_info))
+        # docStrings = [" ".join(list(doc.values())) for doc in docs]
         docStrings = [doc.lower().translate(str.maketrans('', '', string.punctuation)) for doc in docStrings]
         stemStrings = []
         for doc in docStrings:
@@ -67,3 +71,20 @@ def search(query):
             None, 500, {'Content-Type': 'application/json'})
 
     return response
+
+# @doc_bp.route('/<string:doc_id>/<string:query>', methods=['GET'])
+# def tag_search(query):
+#     if(db):
+#         found = list(db.docs.find({"tags": query}))
+#         for d in found:
+#             d['_id'] = str(d['_id'])
+#         print(list(found))
+#         found = json.dumps(list(found))
+#         response = make_response(
+#             found, 200, {'Content-Type': 'application/json'})
+#     else:
+#         response = make_response(
+#             None, 500, {'Content-Type': 'application/json'})
+
+#     return response
+

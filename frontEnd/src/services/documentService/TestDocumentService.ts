@@ -93,6 +93,42 @@ export default class TestDocumentService implements IDocumentService {
         1,
         1
       ),
+      new LitDocument(
+        7
+      ),
+      new LitDocument(
+        8
+      ),
+      new LitDocument(
+        9
+      ),
+      new LitDocument(
+        10
+      ),
+      new LitDocument(
+        11
+      ),
+      new LitDocument(
+        12
+      ),
+      new LitDocument(
+        13
+      ),
+      new LitDocument(
+        14
+      ),
+      new LitDocument(
+        15
+      ),
+      new LitDocument(
+        16
+      ),
+      new LitDocument(
+        17
+      ),
+      new LitDocument(
+        18
+      ),
     ];
 
     return new Promise((resolve, reject) => resolve(documents));

@@ -1,0 +1,37 @@
+@font-face {
+	font-family: "Roboto Light";
+	src: url("../Roboto-Light.ttf");
+}
+
+.AppDocuments {
+	text-align: center;
+	justify-content: center;
+	padding-right: 70px;
+	padding-top: 5px;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: flex-start;
+	align-content: space-around;
+}
+
+.Pagination {
+	justify-content: center;
+}
+
+.PaginationItems > * {
+	background-color: #8c2f39 !important;
+	color: white !important;
+	font-family: "Roboto Light";
+	border-color: white !important;
+}
+
+.individualDocuments {
+	padding: 20px;
+}
+
+.left {
+	padding-left: 70px;
+}

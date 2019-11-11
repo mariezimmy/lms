@@ -1,24 +1,18 @@
 .App {
-  text-align: center;
-  background-color: #2a2122;
+	text-align: center;
+	background-color: #6b242c;
 }
 
 .AppBody {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.AppDocuments {
-  text-align: center;
-  justify-content: center;
-  padding-left: 80px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
 }
 
 .AppLink {
-  color: #8c2f39;
-  text-align: center;
+	color: #8c2f39;
+	text-align: center;
 }

@@ -13,5 +13,6 @@ export default class LitDocument {
     public day?: number,
     public month?: number,
     public year?: number
+
   ) { }
 }
