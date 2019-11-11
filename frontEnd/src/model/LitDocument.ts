@@ -7,6 +7,11 @@ export default class LitDocument {
     public text?: string,
     public author?: string,
     public image?: string,
-    public metadata?: Metadata
-  ) {}
+    public metadata?: Metadata,
+    public tags?: string[],
+    public correspondent?: string,
+    public day?: number,
+    public month?: number,
+    public year?: number
+  ) { }
 }

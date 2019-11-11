@@ -13,7 +13,24 @@ export default class TestDocumentService implements IDocumentService {
   }
 
   public async filterDocuments(query: string): Promise<LitDocument[]> {
-    return this.getDocuments();
+    console.log("fetching");
+    let documents = await (await fetch(
+      "http://localhost:3000/filter/" + query, {
+      mode: 'no-cors', headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })).json();
+    console.log(documents);
+    documents = documents.map(document => {
+      return new LitDocument(
+        document._id,
+        document.author,
+        document.text,
+        document.title
+      );
+    });
+    return new Promise((resolve, reject) => resolve(documents));
   }
   
   public async getDocuments(): Promise<LitDocument[]> {
@@ -24,7 +41,12 @@ export default class TestDocumentService implements IDocumentService {
         "SIR,\nI Do not make account that I am come to London, when I get within the wall: that which makes it London is the meeting of friends. I cannot therefore otherwise bid my self welcome to London, then by seeking of you, which both Sir H. Goodere and I do, with so much diligence, as that this messenger comes two dayes before to intreat you from us both, to reserve your self upon Saterday: so that I may, at our coming to London that night, understand at my house where I may send you word of our supping place that night, and have the honour of your company. So you lay more obligations upon\nYour poor unprofitable servant J. Donne.",
         "John Donne",
         "gherard3.png",
-        new Metadata()
+        new Metadata(),
+        [""],
+        "",
+        1,
+        1,
+        1
       ),
       new LitDocument(
         2,
@@ -59,8 +81,18 @@ export default class TestDocumentService implements IDocumentService {
         new Metadata()
       ),
       new LitDocument(
-        6
-      )
+        6,
+        "To Sir Henry Wotton (2)",
+        "SIR, more than kisses, letters mingle souls,\nFor thus, friends absent speak. This ease controls\nThe tediousness of my life ; but for these\nI could ideate nothing which could please ;\nBut I should wither in one day, and pass\nTo a bottle of hay, that am a lock of grass.\nLife is a voyage, and in our lives' ways\nCountries, courts, towns are rocks, or remoras ;\nThey break or stop all ships, yet our state's such,\nThat though than pitch they stain worse, we must touch.\nIf in the furnace of the raging line,\nOr under th' adverse icy pole thou pine,\nThou know'st two temperate regions, girded in,\nDwell there ; but O, what refuge canst thou win\nParch'd in the court, and in the country frozen ?\nShall cities built of both extremes be chosen ?\nCan dung or garlic be perfume ? Or can\nA scorpion or torpedo cure a man ?\nCities are worst of all three ; of all three ?\nO knotty riddle !  ; each is worst equally.\nCities are sepulchres ; they who dwell there\nAre carcases, as if no such there were.\nAnd courts are theatres, where some men play\nPrinces, some slaves, all to one end, of one clay.\nThe country is a desert, where the good,\nGain'd, inhabits not, born, is not understood.\nThere men become beasts, and prone to more evils ;\nIn cities blocks, and in a lewd court devils.\nAs in the first chaos, confusedly,\nEach element's qualities were in th' other three,\nSo pride, lust, covetise, being several\nTo these three places, yet all are in all,\nAnd mingled thus, their issue is incestuous.\nFalsehood is denizen'd ; virtue is barbarous.\nLet no man say there, “ Virtue's flinty wall\nShall lock vice in me, I'll do none, but know all.”\nMen are sponges, which, to pour out, receive ;\nWho know false play, rather than lose, deceive.\nFor in best understandings sin began,\nAngels sinn'd first, then devils, and then man.\nOnly perchance beasts sin not ; wretched we\nAre beasts in all but white integrity.\nI think if men, which in these place live,\nDurst look in themselves, and themselves retrieve,\nThey would like strangers greet themselves, seeing then\nUtopian youth grown old Italian.\n\tBe then thine own home, and in thyself dwell ;\nInn anywhere ; continuance maketh hell.\nAnd seeing the snail, which everywhere doth roam,\nCarrying his own house still, still is at home ;\nFollow—for he is easy paced—this snail,\nBe thine own palace, or the world's thy gaol.\nAnd in the world's sea do not like cork sleep\nUpon the water's face ; nor in the deep\nSink like a lead without a line ; but as\nFishes glide, leaving no print where they pass,\nNor making sound ; so closely thy course go,\nLet men dispute, whether thou breathe or no.\nOnly in this be no Galenist—to make\nCourts' hot ambitions wholesome, do not take\nA dram of country's dullness ; do not add\nCorrectives, but, as chemics, purge the bad.\nBut, sir, I advise not you, I rather do\nSay o'er those lessons, which I learn'd of you ;\nWhom, free from Germany's schisms, and lightness\nOf France, and fair Italy's faithlessness,\nHaving from these suck'd all they had of worth,\nAnd brought home that faith which you carried forth,\nI thoroughly love ; but if myself I've won\nTo know my rules, I have, and you have DONNE.",
+        "John Donne",
+        "default.png",
+        new Metadata(),
+        [""],
+        "",
+        1,
+        1,
+        1
+      ),
     ];
 
     return new Promise((resolve, reject) => resolve(documents));

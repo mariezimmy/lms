@@ -19,20 +19,22 @@ def filter():
     if(db):
     
         
-        print("args: ", json.dumps(request.args))
+        print("args: ", json.dumps(request.args.to_dict()))
         
         # parse filter criteria
         #filterCriteria = parse.parse_qs(request.args)
         
         #print("criteria: ", filterCriteria)
         
-        docs = db.get_multi_doc(request.args)
-        for d in docs:
-            d['_id'] = str(d['_id'])
+        docs = dumps(db.get_multi_doc(request.args.to_dict()))
+
         print("docs :", docs)
-        docs = dumps(docs)
+        
         response = make_response(
             docs, 200, {'Content-Type': 'application/json'})
+            
+        print("response: ", response)
+            
     else:
         response = make_response(
             None, 500, {'Content-Type': 'application/json'})

@@ -55,6 +55,7 @@ export default class LocalDocumentService implements IDocumentService {
   }
   
   public async filterDocuments(query: string): Promise<LitDocument[]> {
+    console.log("fetching");
     let documents = await (await fetch(
       "http://localhost:3000/filter/" + query, {
       mode: 'no-cors', headers: {
@@ -73,4 +74,4 @@ export default class LocalDocumentService implements IDocumentService {
     });
     return new Promise((resolve, reject) => resolve(documents));
   }
-  }
+}
