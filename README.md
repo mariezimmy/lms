@@ -3,6 +3,7 @@
 ## Release Notes
 
 **LMS v1.0**
+
 *New Features*
 - Comment toggling has been added.
 - alpha version of filtering has beed implemented.
