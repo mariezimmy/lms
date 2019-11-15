@@ -14,7 +14,8 @@ export default class About extends Component<IAboutProps> {
     render() {
         return (
             <div>
-                <h1 className={styles.hello}>
+                <br />
+                <h1 className={styles.headers}>
                     <b>The Project Lead</b>
                 </h1>
 
@@ -27,29 +28,33 @@ export default class About extends Component<IAboutProps> {
                     </Figure>
                 </Row>
                 <p>
-                    <b className={styles.caption}>Jonathan Shelley (Ph.D., UC Berkeley)</b>
+                    <b className={styles.name}>Jonathan Shelley (Ph.D., UC Berkeley)</b>
                 </p>
-                <div className={styles.test}>
-                    <p className={styles.caption}>Jonathan Shelley (Ph.D., UC Berkeley) is a Marion L. Brittain Postdoctoral Fellow at Georgia Tech. His research focuses on theories and depictions of friendship in early modern prose, poetry, and drama.</p>
 
+                <div className={styles.textWrapper}>
+                    <p className={styles.caption}>Jonathan Shelley (Ph.D., UC Berkeley) is a Marion L. Brittain Postdoctoral Fellow at Georgia Tech. His research focuses on theories and depictions of friendship in early modern prose, poetry, and drama.</p>
                 </div>
 
+                <hr className = {styles.divider} />
+                <hr className = {styles.divider} />
 
-                <h1 className={styles.hello}>
+                <h1 className={styles.headers}>
                     <b>The Developers</b>
                 </h1>
-                <div className={styles.test}>
-                    <p className={styles.caption}> Hi! We're five Georgia Tech students. We are Junior Design developers building an interactive repository
+
+                <div className={styles.textWrapper}>
+                     <p className={styles.caption}> Hi! We're five Georgia Tech students. We are Junior Design developers building an interactive repository
                 of John Donne's letters for our client, Dr. Jonathan Shelley.</p>
                 </div>
+
                 <Row className={styles.rowPadding}>
                     <Figure className={styles.avatars}>
                         <Figure.Image
                             src="alice.png"
                             alt="Alice"
                         />
-                        <Figure.Caption className={styles.caption}>
-                            <b>Alice</b>
+                        <Figure.Caption className={styles.stuCaption}>
+                            <b className={styles.stuName}>Alice</b>
                             <p>I'm a fullstack developer. In my free time, I enjoy figure skating, marine life, and making games.</p>
                         </Figure.Caption>
                     </Figure>
@@ -60,8 +65,8 @@ export default class About extends Component<IAboutProps> {
                             src="john.png"
                             alt="john"
                         />
-                        <Figure.Caption className={styles.caption}>
-                            <b>John</b>
+                        <Figure.Caption className={styles.stuCaption}>
+                            <b className={styles.stuName}>John</b>
                             <p>I'm a backend developer. In my free time, I enjoy reading, puzzle games, and going to coffee shops.</p>
                         </Figure.Caption>
                     </Figure>
@@ -72,8 +77,8 @@ export default class About extends Component<IAboutProps> {
                             src="kyle.png"
                             alt="Kyle"
                         />
-                        <Figure.Caption className={styles.caption}>
-                            <b>Kyle</b>
+                        <Figure.Caption className={styles.stuCaption}>
+                            <b className={styles.stuName}>Kyle</b>
                             <p>I'm a backend developer. In my free time, I enjoy reading, running, and cooking.</p>
                         </Figure.Caption>
                     </Figure>
@@ -85,8 +90,8 @@ export default class About extends Component<IAboutProps> {
                             src="marie.png"
                             alt="Marie"
                         />
-                        <Figure.Caption className={styles.caption}>
-                            <b>Marie</b>
+                        <Figure.Caption className={styles.stuCaption}>
+                            <b className={styles.stuName}>Marie</b>
                             <p>I'm a fullstack developer. In my free time, I enjoy knitting, making pixel art, and cooking.</p>
                         </Figure.Caption>
                     </Figure>
@@ -97,8 +102,8 @@ export default class About extends Component<IAboutProps> {
                             src="sarah.png"
                             alt="Sarah"
                         />
-                        <Figure.Caption className={styles.caption}>
-                            <b>Sarah</b>
+                        <Figure.Caption className={styles.stuCaption}>
+                            <b className={styles.stuName}>Sarah</b>
                             <p>I'm a frontend developer. In my free time, I enjoy reading, photography, and playing with my hamster Pancake.</p>
                         </Figure.Caption>
                     </Figure>
