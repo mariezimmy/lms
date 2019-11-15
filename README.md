@@ -29,6 +29,10 @@ blah
 
 - npm and node
   - Download here: https://www.npmjs.com/get-npm
+- Python 3
+  - Download here: https://www.python.org/downloads/
+- Conda
+  - Install guide here: https://docs.conda.io/projects/conda/en/latest/user-guide/install/
 
 *Download Instructions*
 
