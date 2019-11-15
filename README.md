@@ -62,7 +62,7 @@ No installation for the client is needed. Simply access that project at lettersm
 
 *Troubleshooting*
 
-If issues arise, ensure you're in the correct Conda environment (lms). Other common issues that may arise are attributed to missing dependencies on either your machine or the Conda environment. Download appropriate dependencies as needed. 
+If issues arise, ensure you're in the correct Conda environment (lms). Other common issues that may arise are attributed to missing dependencies on either your machine or the Conda environment. Install appropriate dependencies as needed. 
 
 ### Server Information
 
