@@ -27,14 +27,9 @@ Open the application
 Install the shell version
 run "sudo service mongod start" in your shell
 
-#### Mac: 
-IDK probably the same as linux?
+#### Populate your local DB:
+In the /scripts directory, run the following command: `python3 driver.py`
 
-Uncomment the line in app.py:
-```#database.db_init(donne_database, [database.TEST_DOC_1, database.TEST_DOC_3]) ```\
-And run the app as normal. Once the websit gets served, 
-close it down and recomment the line. This will change as we get better way to add
-documents.
 
 ### Working with the DB:
 MongoDB essentially works by keeping a big collection of dicts, each of which will
