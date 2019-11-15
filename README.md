@@ -23,7 +23,8 @@
 
 *Pre-requisites*
 
-blah
+Reference the /backEnd README.md for all backend setup information.
+If developing backend functionality, ensure you're in the *lms* Conda environment. 
 
 *Dependencies*
 
