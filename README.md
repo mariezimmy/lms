@@ -71,4 +71,4 @@ If issues arise, ensure you're in the correct Conda environment (lms). Other com
 For the server at lettersminglesouls.lmc.gatech.edu, simply rebooting the server via "sudo reboot" while ssh's in will get things back into normal working order. The script "lms_startup" in /etc/init.d has the list of commands being run during this process.
 
 *Starting from Scratch*
-
+Clone this repo into a directory of your choice (we used /var/). Follow general build and run instructions above. You may have to perform general server administration tasks like setting up startup scripts or reverse proxies - this will vary based on your server environment. 
