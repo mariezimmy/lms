@@ -2,7 +2,7 @@
 
 ## Release Notes
 
-**LMS v1.0**
+### LMS version 1.0
 
 *New Features*
 - Comment toggling has been added.
