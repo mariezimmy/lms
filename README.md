@@ -6,13 +6,13 @@
 
 *New Features*
 - Comment toggling has been added.
-- alpha version of filtering has beed implemented.
+- Alpha version of filtering has beed implemented.
 
 *Bug Fixes*
 - Tagging is persistent on lettersminglesouls.lmc.gatech.edu.
 
 *Known Bugs*
-- Stylistic bugs:
+- Stylistic bugs
   - About page does not "hug" the right side of the screen.
   - Mobile view is not rendered nicely. 
   - Sorting dropdown that is selected is blue rather than maroon.
