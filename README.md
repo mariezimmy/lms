@@ -25,7 +25,7 @@
 
 blah
 
-*Dependent Libraries*
+*Dependencies*
 
 - npm and node
   - Download here: https://www.npmjs.com/get-npm
