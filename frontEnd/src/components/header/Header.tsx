@@ -33,6 +33,11 @@ export default class Header extends Component<IHeaderProps> {
               alt="BiblioFile logo"
             />
           </Link>
+          <Image
+              src="donne-header.jpg"
+              alt="John Donne"
+              className={styles.donneHeader}
+            />
         </Nav>
 
         <div className={styles.subheader}>
