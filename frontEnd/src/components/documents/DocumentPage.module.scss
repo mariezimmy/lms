@@ -4,92 +4,96 @@
 }
 
 .width {
-  width: 30%;
+	width: 30%;
 }
 
 .left {
-  justify-content: left;
+	justify-content: left;
+
+	// div {
+	// 	padding-right: 10px;
+	// }
 }
 
 .padding {
-  padding-bottom: 3%;
-  padding-top: 3%;
-  padding-left: 50px;
+	padding-bottom: 3%;
+	padding-top: 3%;
+	padding-left: 50px;
 }
 
 .tags {
-  font-family: "Roboto Light";
-  justify-content: left;
+	font-family: "Roboto Light";
+	justify-content: left;
 }
 
 .tagForm {
-  border-color: #8c2f39;
-  font-family: "Roboto Light";
-  width: 90%;
+	border-color: #8c2f39;
+	font-family: "Roboto Light";
+	width: 90%;
 }
 
 .tagForm:focus {
-  box-shadow: none;
-  border-color: #8c2f39;
+	box-shadow: none;
+	border-color: #8c2f39;
 }
 
 .tagButton {
-  border-color: #8c2f39;
-  color: #8c2f39;
-  background-color: white;
-  font-family: "Roboto Light";
+	border-color: #8c2f39;
+	color: #8c2f39;
+	background-color: white;
+	font-family: "Roboto Light";
 }
 
 .tagButton:hover {
-  border-color: #8c2f39;
-  background-color: #8c2f39;
-  color: #ffffff;
+	border-color: #8c2f39;
+	background-color: #8c2f39;
+	color: #ffffff;
 }
 
 .tagButton {
-  border-color: #8c2f39;
-  color: #8c2f39;
-  background-color: white;
-  font-family: "Roboto Light";
+	border-color: #8c2f39;
+	color: #8c2f39;
+	background-color: white;
+	font-family: "Roboto Light";
 }
 
 .Body {
-  background-color: #ecddc0;
-  margin: 0;
-  min-height: 81vh;
-  padding: 0;
+	background-color: #ecddc0;
+	margin: 0;
+	min-height: 81vh;
+	padding: 0;
 }
 
 .Text {
-  text-align: left;
-  text-align-last: left;
-  padding-left: 75px;
-  padding-right: 75px;
-  font-size: 19px;
+	text-align: left;
+	text-align-last: left;
+	padding-left: 75px;
+	padding-right: 75px;
+	font-size: 19px;
 }
 
 .textbckd {
-  background-color: #faf6ef;
-  padding-top: 50px;
-  min-height: 81vh;
+	background-color: #faf6ef;
+	padding-top: 50px;
+	min-height: 81vh;
 }
 
 .tagbckd {
-  background-color: #faf6ef;
+	background-color: #faf6ef;
 }
 
 .Title {
-  text-align: left;
-  padding-left: 75px;
-  font-family: "Palatino Linotype";
-  font-size: 30px;
-  font-weight: bold;
+	text-align: left;
+	padding-left: 75px;
+	font-family: "Palatino Linotype";
+	font-size: 30px;
+	font-weight: bold;
 }
 
 .Author {
-  text-align: left;
-  font-family: "Roboto Light";
-  font-size: 20px;
-  padding-left: 75px;
-  padding-top: 10px;
+	text-align: left;
+	font-family: "Roboto Light";
+	font-size: 20px;
+	padding-left: 75px;
+	padding-top: 10px;
 }

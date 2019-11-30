@@ -23,6 +23,7 @@ interface IDocumentPageState {
 	comments?: DocComment[];
 	tag: string;
 	currentTags: string[];
+	commentsVisible: boolean;
 }
 
 export default class DocumentPage extends Component<IDocumentPageProps, IDocumentPageState> {
@@ -32,7 +33,12 @@ export default class DocumentPage extends Component<IDocumentPageProps, IDocumen
 
 	constructor(props: IDocumentPageProps) {
 		super(props);
-		this.state = { comments: undefined, tag: "", currentTags: this.props.document.tags || [] };
+		this.state = {
+			comments: undefined,
+			tag: "",
+			currentTags: this.props.document.tags || [],
+			commentsVisible: false
+		};
 		this.commentService = new TestCommentService();
 		this.tagService = new LocalTagService();
 		this.getComments(this.props.document);
@@ -95,11 +101,22 @@ export default class DocumentPage extends Component<IDocumentPageProps, IDocumen
 												/>
 											</div>
 											<div>
-												<Button variant="outline-info" onClick={() => { this.addTag(this.props.document, this.state.tag) }}
+												<Button
+													variant="outline-info"
+													onClick={() => { this.addTag(this.props.document, this.state.tag) }}
 													href={'#tag/' + this.state.tag}
 													className={styles.tagButton}
 												>
 													Add Tag
+												</Button>
+											</div>
+											<div>
+												<Button
+													variant="outline-info"
+													onClick={() => { this.setState({ commentsVisible: !this.state.commentsVisible }) }}
+													className={styles.tagButton}
+												>
+													{this.state.commentsVisible ? "Hide Comments" : "Show Comments"}
 												</Button>
 											</div>
 										</Row>
@@ -109,9 +126,14 @@ export default class DocumentPage extends Component<IDocumentPageProps, IDocumen
 						</Col>
 
 						<Col sm={4}>
-							<CommentSidebar
-								comments={this.state.comments}
-							/>
+							{
+								this.state.commentsVisible ?
+									<CommentSidebar
+										comments={this.state.comments}
+									/>
+									:
+									<></>
+							}
 						</Col>
 					</Row>
 				</Container>
