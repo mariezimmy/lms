@@ -57,6 +57,38 @@
 	font-family: "Roboto Light";
 }
 
+.commentButton{
+	color: #8c2f39;
+	border: none;
+	font-family: "Roboto Light";
+	margin-left: 300px;
+	text-decoration: none;
+	outline: none;
+}
+
+.commentButton:hover {
+	border: none;
+	color: #8c2f39;
+	background-color: #faf6ef;
+	text-decoration: none;
+	outline: none;
+}
+
+.commentButton:focus {
+	outline: none;
+	border: none;
+	color: #8c2f39;
+	background-color: #faf6ef;
+	text-decoration: none;
+}
+
+.btn-outline-info {
+	color: red;
+	border-color: red;
+}
+
+
+
 .Body {
 	background-color: #ecddc0;
 	margin: 0;
@@ -70,6 +102,10 @@
 	padding-left: 75px;
 	padding-right: 75px;
 	font-size: 19px;
+}
+
+.titleContainer {
+	display: flex;
 }
 
 .textbckd {
