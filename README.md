@@ -6,7 +6,6 @@
 
 *New Features*
 - Comment toggling has been added.
-- Alpha version of filtering has beed implemented.
 
 *Bug Fixes*
 - Tagging is persistent on lettersminglesouls.lmc.gatech.edu.
