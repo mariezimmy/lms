@@ -75,7 +75,16 @@ export default class DocumentPage extends Component<IDocumentPageProps, IDocumen
 				<Container>
 					<Row>
 						<Col sm={8} className={styles.textbckd}>
+							<div className = {styles.titleContainer}>
 							<h1 className={styles.Title}>{this.props.document.title || "Unknown"} </h1>
+								<Button
+									variant="outline-info"
+									onClick={() => { this.setState({ commentsVisible: !this.state.commentsVisible }) }}
+									className={styles.commentButton}
+								>
+									{this.state.commentsVisible ? "Hide Comments" : "Show Comments"}
+								</Button>
+							</div>
 							<h1 className={styles.Author}>{this.props.document.author || "Unknown"} </h1>
 							<hr></hr>
 							<br />
@@ -108,15 +117,6 @@ export default class DocumentPage extends Component<IDocumentPageProps, IDocumen
 													className={styles.tagButton}
 												>
 													Add Tag
-												</Button>
-											</div>
-											<div>
-												<Button
-													variant="outline-info"
-													onClick={() => { this.setState({ commentsVisible: !this.state.commentsVisible }) }}
-													className={styles.tagButton}
-												>
-													{this.state.commentsVisible ? "Hide Comments" : "Show Comments"}
 												</Button>
 											</div>
 										</Row>
